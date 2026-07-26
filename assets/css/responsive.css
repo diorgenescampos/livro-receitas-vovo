@@ -1,20 +1,302 @@
+/*==================================================
+RESPONSIVE
+CADERNO DE RECEITAS DA VOVÓ
+==================================================*/
+
+
+/* TABLET */
 
 @media(max-width:991px){
 
-.galeria{
 
-grid-template-columns:repeat(2,1fr);
+.container{
+
+    width:92%;
 
 }
 
+
+
+/* HEADER */
+
+.header .container{
+
+    flex-direction:column;
+
+    gap:20px;
+
 }
+
+
+
+.menu{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+
+/* HERO */
+
+.hero-grid{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+
+
+.hero-list{
+
+    text-align:left;
+
+    max-width:300px;
+
+    margin:auto;
+
+}
+
+
+
+.hero-image img{
+
+    width:350px;
+
+}
+
+
+
+/* CARDS */
+
+.cards{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+
+
+/* RECEITAS */
+
+.galeria,
+.grid-receitas{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+
+
+/* DEPOIMENTOS */
+
+.depoimentos-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+
+
+/* CELULAR */
 
 @media(max-width:768px){
 
-.galeria{
 
-grid-template-columns:1fr;
+
+/* HEADER */
+
+.logo{
+
+    font-size:28px;
+
+    text-align:center;
 
 }
+
+
+
+.menu{
+
+    gap:15px;
+
+}
+
+
+
+.menu a{
+
+    font-size:14px;
+
+}
+
+
+
+.btn-header{
+
+    padding:12px 22px;
+
+}
+
+
+
+/* HERO */
+
+.hero{
+
+    padding:70px 0;
+
+}
+
+
+
+.hero h1{
+
+    font-size:42px;
+
+}
+
+
+
+.hero p{
+
+    font-size:17px;
+
+}
+
+
+
+.hero-image img{
+
+    width:280px;
+
+}
+
+
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+
+
+.btn-primary,
+.btn-secondary{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+
+
+/* TITULOS */
+
+.section-title h2,
+.titulo h2{
+
+    font-size:38px;
+
+}
+
+
+
+/* CARDS */
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.card{
+
+    padding:30px 20px;
+
+}
+
+
+
+/* RECEITAS */
+
+.galeria,
+.grid-receitas{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.receita img{
+
+    height:220px;
+
+}
+
+
+
+/* DEPOIMENTOS */
+
+.depoimentos-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+/* OFERTA */
+
+.oferta h2{
+
+    font-size:40px;
+
+}
+
+
+
+.preco{
+
+    font-size:48px;
+
+}
+
+
+
+/* FAQ */
+
+.faq-item{
+
+    padding:20px;
+
+}
+
+
 
 }
