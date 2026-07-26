@@ -1,5 +1,111 @@
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-    background:#FAF6EF;
+
     font-family:'Poppins',sans-serif;
+    background:#FAF6EF;
+    color:#3B2A1D;
+    line-height:1.7;
+
+}
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+/* ==================================================
+   CORES
+================================================== */
+
+:root{
+
+    --marrom:#5C3A21;
+    --marrom-escuro:#3B2A1D;
+    --dourado:#C49A3A;
+    --creme:#FAF6EF;
+    --branco:#FFFFFF;
+    --cinza:#666666;
+    --verde:#6A8B4F;
+
+}
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+
+}
+
+/* ==================================================
+   TÍTULOS
+================================================== */
+
+h1,h2,h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+.section-title{
+
+    text-align:center;
+    margin-bottom:60px;
+
+}
+
+.section-title span{
+
+    color:var(--dourado);
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+}
+
+.section-title h2{
+
+    font-size:48px;
+    margin-top:15px;
+
+}
+
+.section-title p{
+
+    max-width:700px;
+    margin:20px auto 0;
+    color:var(--cinza);
+
 }
