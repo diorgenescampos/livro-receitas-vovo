@@ -7,247 +7,562 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-Descubra seu Perfil Culinário | Caderno de Receitas da Vovó
+Descubra seu Estilo de Cozinha | Caderno de Receitas da Vovó
 </title>
 
-<link rel="stylesheet" href="assets/css/style.css">
+
+<meta name="description"
+content="Descubra qual estilo de cozinha combina com você e encontre receitas que despertam memórias especiais.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:#fff8ed;
+
+color:#4a2d18;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+.quiz-container{
+
+width:90%;
+
+max-width:700px;
+
+background:white;
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+text-align:center;
+
+}
+
+
+
+.logo{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:34px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+color:#6b4226;
+
+}
+
+
+
+h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:42px;
+
+margin-bottom:20px;
+
+}
+
+
+
+p{
+
+font-size:17px;
+
+color:#665343;
+
+margin-bottom:30px;
+
+}
+
+
+
+.progress{
+
+height:10px;
+
+background:#ead8bd;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-bottom:30px;
+
+}
+
+
+
+.progress-bar{
+
+height:100%;
+
+width:0%;
+
+background:#c58b35;
+
+transition:.3s;
+
+}
+
+
+
+.question{
+
+display:none;
+
+}
+
+
+
+.question.active{
+
+display:block;
+
+}
+
+
+
+.question h2{
+
+font-size:26px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.option{
+
+
+display:block;
+
+width:100%;
+
+padding:16px;
+
+margin:12px 0;
+
+border:none;
+
+border-radius:50px;
+
+background:#f8ead5;
+
+color:#5a351b;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.option:hover{
+
+background:#d9aa5a;
+
+color:white;
+
+}
+
+
+
+.btn{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:16px 35px;
+
+background:#c58b35;
+
+color:white;
+
+border-radius:50px;
+
+font-weight:700;
+
+text-decoration:none;
+
+}
+
+
+
+</style>
+
 
 </head>
 
 
 <body>
 
-
-<section class="quiz-page">
-
-<div class="container">
+    <div class="quiz-container">
 
 
-<div class="quiz-content">
+<div class="logo">
 
+📖 Caderno de Receitas da Vovó
 
-<span class="tag">
-🍳 Quiz Culinário
-</span>
+</div>
+
 
 
 <h1>
-Descubra seu Perfil Culinário
+
+Descubra seu estilo de cozinha
+
 </h1>
 
 
+
 <p>
-Responda algumas perguntas e descubra qual estilo de receitas combina mais com você.
+
+Responda algumas perguntas e descubra qual perfil culinário combina com você.
+
 </p>
 
 
-<div class="quiz-box">
-<div class="progresso">
-    <div class="barra" id="barra"></div>
-</div>
-
-<p id="etapa">
-Pergunta 1 de 3
-</p>
-
-<h2 id="pergunta">
-Qual tipo de receita você mais gosta?
-</h2>
 
 
-<div class="quiz-options" id="opcoes">
+<div class="progress">
 
-
-<button onclick="responder('tradicional')">
-🍲 Receitas de família
-</button>
-
-
-<button onclick="responder('doces')">
-🍰 Bolos e sobremesas
-</button>
-
-
-<button onclick="responder('massas')">
-🍞 Pães e massas caseiras
-</button>
-
-
-<button onclick="responder('praticas')">
-🍪 Receitas simples e rápidas
-</button>
-
+<div class="progress-bar" id="progressBar"></div>
 
 </div>
 
 
-<div id="resultado" style="display:none;">
+
+
+
+
+<!-- PERGUNTA 1 -->
+
+
+<div class="question active">
+
 
 <h2>
-Seu perfil culinário:
+
+1. Qual lembrança da cozinha da infância mais combina com você?
+
 </h2>
 
-<p id="textoResultado"></p>
 
 
-<a href="index.html#comprar" class="btn-primary">
-Quero meu Caderno de Receitas
+<button class="option" onclick="nextQuestion()">
+
+🍰 O cheiro de bolo saindo do forno
+
+</button>
+
+
+
+<button class="option" onclick="nextQuestion()">
+
+🍞 O pão caseiro feito pela família
+
+</button>
+
+
+
+<button class="option" onclick="nextQuestion()">
+
+☕ O café acompanhado de receitas especiais
+
+</button>
+
+
+
+<button class="option" onclick="nextQuestion()">
+
+🍪 Os doces preparados com carinho
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- PERGUNTA 2 -->
+
+
+<div class="question">
+
+
+<h2>
+
+2. Qual tipo de receita você mais gosta?
+
+</h2>
+
+
+
+<button class="option" onclick="nextQuestion()">
+
+🍰 Bolos e sobremesas
+
+</button>
+
+
+
+<button class="option" onclick="nextQuestion()">
+
+🥖 Pães e receitas de forno
+
+</button>
+
+
+
+<button class="option" onclick="nextQuestion()">
+
+🥘 Comidas simples do dia a dia
+
+</button>
+
+
+
+<button class="option" onclick="nextQuestion()">
+
+❤️ Receitas tradicionais da família
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- PERGUNTA 3 -->
+
+
+<div class="question">
+
+
+<h2>
+
+3. O que você busca quando cozinha?
+
+</h2>
+
+
+
+<button class="option" onclick="showResult()">
+
+❤️ Relembrar momentos especiais
+
+</button>
+
+
+
+<button class="option" onclick="showResult()">
+
+👨‍👩‍👧 Criar memórias com a família
+
+</button>
+
+
+
+<button class="option" onclick="showResult()">
+
+⏱️ Preparar receitas fáceis e saborosas
+
+</button>
+
+
+
+<button class="option" onclick="showResult()">
+
+📖 Resgatar receitas antigas
+
+</button>
+
+
+
+</div>
+
+<!-- RESULTADO -->
+
+
+<div class="question" id="result">
+
+
+<h2>
+
+❤️ Seu perfil: Cozinheiro(a) de Memórias
+
+</h2>
+
+
+
+<p>
+
+Você valoriza receitas que carregam histórias, carinho e tradição.
+
+A cozinha para você não é apenas preparar comida, é criar momentos especiais e manter vivas as lembranças da família.
+
+</p>
+
+
+
+<p>
+
+Por isso, o <strong>Caderno de Receitas da Vovó</strong> foi criado especialmente para você.
+
+Tenha acesso a receitas tradicionais, dicas especiais e materiais para trazer novamente aquele sabor da cozinha de antigamente.
+
+</p>
+
+
+
+
+<a href="https://pay.kiwify.com.br/fBo9p1v"
+class="btn">
+
+📖 Quero meu Caderno de Receitas da Vovó
+
 </a>
 
 
-</div>
-
 
 </div>
 
 
 </div>
 
-
-</div>
-
-
-</section>
+   <script>
 
 
-<script>
-
-let etapa = 1;
-
-let respostas = [];
+let currentQuestion = 0;
 
 
-function responder(resposta){
+const questions = document.querySelectorAll(".question");
 
-respostas.push(resposta);
-atualizarProgresso();
-
-if(etapa === 1){
-
-etapa = 2;
-
-document.getElementById("pergunta").innerHTML =
-"Qual momento combina mais com você?";
+const progressBar = document.getElementById("progressBar");
 
 
-document.getElementById("opcoes").innerHTML = `
 
-<button onclick="responder('familia')">
-👨‍👩‍👧 Reunir a família
-</button>
 
-<button onclick="responder('cafe')">
-☕ Preparar um café especial
-</button>
+function nextQuestion(){
 
-<button onclick="responder('memorias')">
-❤️ Relembrar sabores antigos
-</button>
 
-<button onclick="responder('novidades')">
-✨ Testar receitas novas
-</button>
+questions[currentQuestion].classList.remove("active");
 
-`;
+
+currentQuestion++;
+
+
+questions[currentQuestion].classList.add("active");
+
+
+updateProgress();
+
 
 }
 
 
-else if(etapa === 2){
-
-etapa = 3;
 
 
-document.getElementById("pergunta").innerHTML =
-"Qual ingrediente não pode faltar na sua cozinha?";
+function showResult(){
 
 
-document.getElementById("opcoes").innerHTML = `
+questions[currentQuestion].classList.remove("active");
 
-<button onclick="responder('farinha')">
-🌾 Farinha e massas
-</button>
 
-<button onclick="responder('chocolate')">
-🍫 Chocolate e doces
-</button>
+document.getElementById("result").classList.add("active");
 
-<button onclick="responder('temperos')">
-🌿 Temperos especiais
-</button>
 
-<button onclick="responder('frutas')">
-🍓 Frutas e receitas naturais
-</button>
+progressBar.style.width = "100%";
 
-`;
-
-}
-
-else {
-
-    mostrarResultado();
-
-}
 
 }
 
 
-function atualizarProgresso(){
-
-let barra = document.getElementById("barra");
-let etapaTexto = document.getElementById("etapa");
 
 
-if(etapa === 1){
+function updateProgress(){
 
-    barra.style.width = "33%";
-    etapaTexto.innerHTML = "Pergunta 1 de 3";
+
+let progress = ((currentQuestion) / 3) * 100;
+
+
+progressBar.style.width = progress + "%";
+
 
 }
 
 
-if(etapa === 2){
 
-    barra.style.width = "66%";
-    etapaTexto.innerHTML = "Pergunta 2 de 3";
+updateProgress();
 
-}
-
-
-if(etapa === 3){
-
-    barra.style.width = "100%";
-    etapaTexto.innerHTML = "Pergunta 3 de 3";
-
-}
-
-}
-
-function mostrarResultado(){
-
-
-document.getElementById("pergunta").style.display="none";
-
-document.getElementById("opcoes").style.display="none";
-
-
-let resultado =
-"Você tem um perfil de amante da cozinha tradicional! ❤️ " +
-"Seu estilo combina com receitas caseiras, sabores de infância e momentos especiais em família.";
-
-
-document.getElementById("textoResultado").innerHTML = resultado;
-
-
-document.getElementById("resultado").style.display="block";
-
-}
 
 </script>
 
 
+
+
 </body>
 
-</html>
+</html> 
+        
