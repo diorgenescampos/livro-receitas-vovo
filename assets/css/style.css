@@ -736,3 +736,61 @@ RECEITAS
     line-height:1.8;
 
 }
+
+/* ================= RECEITAS ================= */
+
+.receitas{
+
+    padding:100px 0;
+
+    background:#faf6ef;
+
+}
+
+.galeria{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+.receita{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.receita:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.receita img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.receita h3{
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#3f2d1d;
+
+}
