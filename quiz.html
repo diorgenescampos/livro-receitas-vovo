@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Quiz Culinário | Caderno de Receitas da Vovó
+Descubra seu Perfil Culinário | Caderno de Receitas da Vovó
 </title>
 
 <link rel="stylesheet" href="assets/css/style.css">
@@ -18,11 +18,14 @@ Quiz Culinário | Caderno de Receitas da Vovó
 
 <body>
 
-<section class="hero">
+
+<section class="quiz-page">
 
 <div class="container">
 
-<div class="hero-content">
+
+<div class="quiz-content">
+
 
 <span class="tag">
 🍳 Quiz Culinário
@@ -35,54 +38,182 @@ Descubra seu Perfil Culinário
 
 
 <p>
-Responda algumas perguntas e descubra quais receitas combinam com você.
+Responda algumas perguntas e descubra qual estilo de receitas combina mais com você.
 </p>
 
 
 <div class="quiz-box">
 
-<h2>
-Qual receita você mais gosta?
+
+<h2 id="pergunta">
+Qual tipo de receita você mais gosta?
 </h2>
 
 
-<div class="quiz-options">
-
-<button>
-🍞 Pães caseiros
-</button>
+<div class="quiz-options" id="opcoes">
 
 
-<button>
-🍰 Bolos e sobremesas
-</button>
-
-
-<button>
+<button onclick="responder('tradicional')">
 🍲 Receitas de família
 </button>
 
 
-<button>
-🍪 Doces tradicionais
+<button onclick="responder('doces')">
+🍰 Bolos e sobremesas
+</button>
+
+
+<button onclick="responder('massas')">
+🍞 Pães e massas caseiras
+</button>
+
+
+<button onclick="responder('praticas')">
+🍪 Receitas simples e rápidas
 </button>
 
 
 </div>
 
-</div>
+
+<div id="resultado" style="display:none;">
+
+<h2>
+Seu perfil culinário:
+</h2>
+
+<p id="textoResultado"></p>
 
 
 <a href="index.html#comprar" class="btn-primary">
-Quero meu eBook
+Quero meu Caderno de Receitas
 </a>
 
 
 </div>
 
+
 </div>
 
+
+</div>
+
+
+</div>
+
+
 </section>
+
+
+<script>
+
+let etapa = 1;
+
+let respostas = [];
+
+
+function responder(resposta){
+
+respostas.push(resposta);
+
+
+if(etapa === 1){
+
+etapa = 2;
+
+document.getElementById("pergunta").innerHTML =
+"Qual momento combina mais com você?";
+
+
+document.getElementById("opcoes").innerHTML = `
+
+<button onclick="responder('familia')">
+👨‍👩‍👧 Reunir a família
+</button>
+
+<button onclick="responder('cafe')">
+☕ Preparar um café especial
+</button>
+
+<button onclick="responder('memorias')">
+❤️ Relembrar sabores antigos
+</button>
+
+<button onclick="responder('novidades')">
+✨ Testar receitas novas
+</button>
+
+`;
+
+}
+
+
+else if(etapa === 2){
+
+etapa = 3;
+
+
+document.getElementById("pergunta").innerHTML =
+"Qual ingrediente não pode faltar na sua cozinha?";
+
+
+document.getElementById("opcoes").innerHTML = `
+
+<button onclick="responder('farinha')">
+🌾 Farinha e massas
+</button>
+
+<button onclick="responder('chocolate')">
+🍫 Chocolate e doces
+</button>
+
+<button onclick="responder('temperos')">
+🌿 Temperos especiais
+</button>
+
+<button onclick="responder('frutas')">
+🍓 Frutas e receitas naturais
+</button>
+
+`;
+
+}
+
+
+else {
+
+
+mostrarResultado();
+
+}
+
+
+}
+
+
+
+function mostrarResultado(){
+
+
+document.getElementById("pergunta").style.display="none";
+
+document.getElementById("opcoes").style.display="none";
+
+
+let resultado =
+"Você tem um perfil de amante da cozinha tradicional! ❤️ " +
+"Seu estilo combina com receitas caseiras, sabores de infância e momentos especiais em família.";
+
+
+document.getElementById("textoResultado").innerHTML = resultado;
+
+
+document.getElementById("resultado").style.display="block";
+
+
+}
+
+</script>
 
 
 </body>
