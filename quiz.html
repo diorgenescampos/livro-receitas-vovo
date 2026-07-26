@@ -185,38 +185,45 @@ document.getElementById("opcoes").innerHTML = `
 
 }
 
-
 else {
+
+    mostrarResultado();
+
+}
+
+}
+
+
 function atualizarProgresso(){
 
 let barra = document.getElementById("barra");
 let etapaTexto = document.getElementById("etapa");
 
+
 if(etapa === 1){
+
     barra.style.width = "33%";
     etapaTexto.innerHTML = "Pergunta 1 de 3";
+
 }
+
 
 if(etapa === 2){
+
     barra.style.width = "66%";
     etapaTexto.innerHTML = "Pergunta 2 de 3";
+
 }
+
 
 if(etapa === 3){
+
     barra.style.width = "100%";
     etapaTexto.innerHTML = "Pergunta 3 de 3";
-}
 
 }
 
-mostrarResultado();
-
 }
-
-
-}
-
-
 
 function mostrarResultado(){
 
@@ -235,7 +242,6 @@ document.getElementById("textoResultado").innerHTML = resultado;
 
 
 document.getElementById("resultado").style.display="block";
-
 
 }
 
