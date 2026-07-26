@@ -1013,5 +1013,23 @@ ANIMAÇÕES
 }
 
 
+@media (max-width: 768px) {
+
+    .hero-image {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 85%;
+        max-width: 330px;
+        margin: 0 auto;
+        transform: none;
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.20),
+            0 8px 15px rgba(0, 0, 0, 0.12);
+    }
+
+}
 
 
