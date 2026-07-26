@@ -1048,3 +1048,43 @@ ANIMAÇÕES
     font-weight: 500;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
+.quiz-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.quiz-content {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.quiz-box {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    margin: 35px 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.10);
+}
+
+.quiz-options {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.quiz-options button {
+    padding: 18px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    background: #f5eee5;
+    transition: 0.3s;
+}
+
+.quiz-options button:hover {
+    transform: translateY(-3px);
+}
