@@ -89,39 +89,25 @@ a{
 /* ================= BOTÕES ================= */
 
 
-.btn-primary{
 
-    display:inline-block;
-
-    padding:18px 38px;
-
-    border-radius:50px;
-
-    background:
-    linear-gradient(
-    135deg,
-    var(--dourado),
-    var(--dourado-claro)
-    );
-
-    color:#fff;
-
-    font-weight:700;
-
-    font-size:17px;
-
-    box-shadow:
-    0 10px 25px rgba(200,155,60,.35);
-
+.btn-primary {
+    display: inline-block;
+    background: #b45309;
+    color: #ffffff;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(180, 83, 9, 0.35);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
-
-.btn-primary:hover{
-
-    transform:translateY(-3px);
-
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(180, 83, 9, 0.45);
 }
-
 
 
 .btn-secondary{
