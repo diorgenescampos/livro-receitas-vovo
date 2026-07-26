@@ -986,3 +986,28 @@ ANIMAÇÕES
 
 }
 
+/* ANIMAÇÃO SCROLL */
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.8s ease;
+
+}
+
+
+
+.fade.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+
