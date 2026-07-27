@@ -9,12 +9,8 @@
 
 
 <title>
-Descubra seu Estilo de Cozinha | Caderno de Receitas da Vovó
+Descubra seu Perfil Culinário | Caderno de Receitas da Vovó
 </title>
-
-
-<meta name="description"
-content="Descubra qual estilo de cozinha combina com você e encontre receitas que despertam memórias especiais.">
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +20,11 @@ content="Descubra qual estilo de cozinha combina com você e encontre receitas q
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 
+
 <style>
 
 
-*{
+* {
 
 margin:0;
 
@@ -39,13 +36,17 @@ box-sizing:border-box;
 
 
 
-body{
+body {
 
 font-family:'Poppins',sans-serif;
 
-background:#fff8ed;
+background:
 
-color:#4a2d18;
+linear-gradient(
+135deg,
+#fff8ed,
+#f3dfbb
+);
 
 min-height:100vh;
 
@@ -55,71 +56,137 @@ align-items:center;
 
 justify-content:center;
 
+color:#4a2d18;
+
 }
 
 
 
-.quiz-container{
+.quiz-box {
+
 
 width:90%;
 
-max-width:700px;
+max-width:750px;
 
-background:white;
+background:#ffffff;
 
-padding:40px;
+border-radius:30px;
 
-border-radius:25px;
+padding:45px;
 
-box-shadow:0 15px 40px rgba(0,0,0,.12);
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.15);
 
 text-align:center;
 
+
 }
 
 
 
-.logo{
+.logo {
+
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:34px;
+font-size:36px;
 
 font-weight:700;
 
-margin-bottom:20px;
-
 color:#6b4226;
+
+margin-bottom:15px;
+
 
 }
 
 
 
-h1{
+.mockup {
+
+
+width:180px;
+
+margin:20px auto;
+
+
+}
+
+
+
+.mockup img {
+
+
+width:100%;
+
+
+filter:drop-shadow(
+0 15px 20px rgba(0,0,0,.2)
+);
+
+
+}
+
+
+
+h1 {
+
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:42px;
+font-size:45px;
 
-margin-bottom:20px;
+line-height:1.1;
+
+margin-bottom:15px;
+
 
 }
 
 
 
-p{
+.subtitle {
 
-font-size:17px;
 
 color:#665343;
 
+font-size:17px;
+
 margin-bottom:30px;
+
 
 }
 
 
 
-.progress{
+.progress-area {
+
+
+margin-bottom:30px;
+
+
+}
+
+
+
+.progress-text {
+
+
+font-size:14px;
+
+font-weight:600;
+
+margin-bottom:8px;
+
+
+}
+
+
+
+.progress {
+
 
 height:10px;
 
@@ -129,13 +196,13 @@ border-radius:20px;
 
 overflow:hidden;
 
-margin-bottom:30px;
 
 }
 
 
 
-.progress-bar{
+.progress-bar {
+
 
 height:100%;
 
@@ -143,48 +210,81 @@ width:0%;
 
 background:#c58b35;
 
-transition:.3s;
+transition:.4s;
+
 
 }
 
 
 
-.question{
+.question {
+
 
 display:none;
 
+
 }
 
 
 
-.question.active{
+.question.active {
+
 
 display:block;
 
+animation:fade .4s;
+
+
 }
 
 
 
-.question h2{
+@keyframes fade {
 
-font-size:26px;
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+.question h2 {
+
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:30px;
 
 margin-bottom:25px;
 
+
 }
 
 
 
-.option{
+.option {
 
-
-display:block;
 
 width:100%;
 
 padding:16px;
 
-margin:12px 0;
+margin:10px 0;
 
 border:none;
 
@@ -202,51 +302,34 @@ cursor:pointer;
 
 transition:.3s;
 
-}
-
-
-
-.option:hover{
-
-background:#d9aa5a;
-
-color:white;
 
 }
 
 
 
-.btn{
+.option:hover {
 
-display:inline-block;
-
-margin-top:25px;
-
-padding:16px 35px;
 
 background:#c58b35;
 
 color:white;
 
-border-radius:50px;
+transform:translateY(-3px);
 
-font-weight:700;
-
-text-decoration:none;
 
 }
 
 
-
-</style>
-
+    </style>
 
 </head>
 
 
 <body>
 
-    <div class="quiz-container">
+
+<div class="quiz-box">
+
 
 
 <div class="logo">
@@ -257,20 +340,48 @@ text-decoration:none;
 
 
 
+
+<div class="mockup">
+
+
+<img 
+src="assets/images/mockup/mockup.png"
+alt="Caderno de Receitas da Vovó">
+
+
+</div>
+
+
+
+
+
 <h1>
 
-Descubra seu estilo de cozinha
+Descubra qual estilo de cozinha combina com você
 
 </h1>
 
 
 
-<p>
+<p class="subtitle">
 
-Responda algumas perguntas e descubra qual perfil culinário combina com você.
+Responda algumas perguntas e descubra o perfil que mais combina com sua relação com a cozinha.
 
 </p>
 
+
+
+
+
+
+<div class="progress-area">
+
+
+<div class="progress-text" id="progressText">
+
+Pergunta 1 de 3
+
+</div>
 
 
 
@@ -279,6 +390,12 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 <div class="progress-bar" id="progressBar"></div>
 
 </div>
+
+
+</div>
+
+
+
 
 
 
@@ -293,7 +410,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <h2>
 
-1. Qual lembrança da cozinha da infância mais combina com você?
+Qual lembrança da cozinha da infância mais desperta emoção em você?
 
 </h2>
 
@@ -301,7 +418,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="nextQuestion()">
 
-🍰 O cheiro de bolo saindo do forno
+🍰 O cheiro de bolo caseiro saindo do forno
 
 </button>
 
@@ -309,7 +426,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="nextQuestion()">
 
-🍞 O pão caseiro feito pela família
+🍞 O pão feito com carinho pela família
 
 </button>
 
@@ -317,7 +434,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="nextQuestion()">
 
-☕ O café acompanhado de receitas especiais
+☕ O café da tarde com receitas especiais
 
 </button>
 
@@ -325,12 +442,13 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="nextQuestion()">
 
-🍪 Os doces preparados com carinho
+🍪 Os doces preparados pela vovó
 
 </button>
 
 
 </div>
+
 
 
 
@@ -347,7 +465,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <h2>
 
-2. Qual tipo de receita você mais gosta?
+Que tipo de receita você mais gosta de preparar?
 
 </h2>
 
@@ -355,7 +473,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="nextQuestion()">
 
-🍰 Bolos e sobremesas
+🍰 Bolos e sobremesas tradicionais
 
 </button>
 
@@ -371,7 +489,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="nextQuestion()">
 
-🥘 Comidas simples do dia a dia
+🥘 Comidas simples para a família
 
 </button>
 
@@ -379,13 +497,12 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="nextQuestion()">
 
-❤️ Receitas tradicionais da família
+❤️ Receitas antigas cheias de história
 
 </button>
 
 
 </div>
-
 
 
 
@@ -402,7 +519,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <h2>
 
-3. O que você busca quando cozinha?
+O que você mais deseja ao cozinhar?
 
 </h2>
 
@@ -418,7 +535,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="showResult()">
 
-👨‍👩‍👧 Criar memórias com a família
+👨‍👩‍👧 Criar novas memórias em família
 
 </button>
 
@@ -426,7 +543,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="showResult()">
 
-⏱️ Preparar receitas fáceis e saborosas
+⏱️ Fazer receitas gostosas sem complicação
 
 </button>
 
@@ -434,7 +551,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <button class="option" onclick="showResult()">
 
-📖 Resgatar receitas antigas
+📖 Manter vivas as receitas tradicionais
 
 </button>
 
@@ -442,7 +559,7 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 </div>
 
-<!-- RESULTADO -->
+    <!-- RESULTADO FINAL -->
 
 
 <div class="question" id="result">
@@ -450,37 +567,88 @@ Responda algumas perguntas e descubra qual perfil culinário combina com você.
 
 <h2>
 
-❤️ Seu perfil: Cozinheiro(a) de Memórias
+❤️ Seu perfil: Guardião(ã) de Memórias
 
 </h2>
 
 
 
-<p>
+
+<p class="subtitle">
 
 Você valoriza receitas que carregam histórias, carinho e tradição.
 
-A cozinha para você não é apenas preparar comida, é criar momentos especiais e manter vivas as lembranças da família.
+Para você, cozinhar é muito mais do que preparar uma refeição: é manter vivas lembranças especiais e criar novos momentos com quem ama.
 
 </p>
+
+
+
+
+<p class="subtitle">
+
+Por isso, o <strong>Caderno de Receitas da Vovó</strong> combina perfeitamente com você.
+
+Tenha acesso a receitas tradicionais, dicas especiais e materiais preparados para trazer novamente aquele sabor da cozinha da família.
+
+</p>
+
+
+
+
+
+<div style="margin:25px 0;">
+
+
+<strong>
+
+📖 O que você vai receber:
+
+</strong>
 
 
 
 <p>
 
-Por isso, o <strong>Caderno de Receitas da Vovó</strong> foi criado especialmente para você.
+✔ Caderno digital de receitas tradicionais
 
-Tenha acesso a receitas tradicionais, dicas especiais e materiais para trazer novamente aquele sabor da cozinha de antigamente.
+<br>
+
+✔ Receitas fáceis de preparar
+
+<br>
+
+✔ Dicas especiais da cozinha da vovó
+
+<br>
+
+✔ Acesso imediato após a compra
 
 </p>
+
+
+</div>
+
+
 
 
 
 
 <a href="https://pay.kiwify.com.br/fBo9p1v"
-class="btn">
 
-📖 Quero meu Caderno de Receitas da Vovó
+class="option"
+
+style="
+display:block;
+background:#c58b35;
+color:white;
+text-decoration:none;
+margin-top:30px;
+">
+
+
+🔥 Quero meu Caderno de Receitas da Vovó
+
 
 </a>
 
@@ -491,7 +659,7 @@ class="btn">
 
 </div>
 
-   <script>
+ <script>
 
 
 let currentQuestion = 0;
@@ -499,7 +667,36 @@ let currentQuestion = 0;
 
 const questions = document.querySelectorAll(".question");
 
+
 const progressBar = document.getElementById("progressBar");
+
+
+const progressText = document.getElementById("progressText");
+
+
+
+
+
+function updateProgress(){
+
+
+let percent = ((currentQuestion) / 3) * 100;
+
+
+progressBar.style.width = percent + "%";
+
+
+
+if(currentQuestion < 3){
+
+progressText.innerHTML =
+"Pergunta " + (currentQuestion + 1) + " de 3";
+
+}
+
+
+}
+
 
 
 
@@ -510,16 +707,23 @@ function nextQuestion(){
 questions[currentQuestion].classList.remove("active");
 
 
+
 currentQuestion++;
+
 
 
 questions[currentQuestion].classList.add("active");
 
 
+
 updateProgress();
 
 
+
 }
+
+
+
 
 
 
@@ -530,31 +734,25 @@ function showResult(){
 questions[currentQuestion].classList.remove("active");
 
 
+
 document.getElementById("result").classList.add("active");
+
 
 
 progressBar.style.width = "100%";
 
 
-}
+progressText.innerHTML = "Resultado concluído 🎉";
 
-
-
-
-function updateProgress(){
-
-
-let progress = ((currentQuestion) / 3) * 100;
-
-
-progressBar.style.width = progress + "%";
 
 
 }
+
 
 
 
 updateProgress();
+
 
 
 </script>
@@ -564,5 +762,4 @@ updateProgress();
 
 </body>
 
-</html> 
-        
+</html>   
