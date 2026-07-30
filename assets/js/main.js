@@ -1,254 +1,345 @@
 /* =====================================================
-   LANDING PAGE V2
-   RECEITAS DA VOVÓ
-=====================================================*/
+   SCRIPT.JS V3 PREMIUM
+   Kit Digital Receitas da Vovó
+====================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ===========================================
-       FAQ
-    =========================================== */
 
-    const faqItems = document.querySelectorAll(".faq-item");
+/* =====================================================
+   SCROLL SUAVE
+====================================================== */
 
-    faqItems.forEach(item => {
+const links = document.querySelectorAll('a[href^="#"]');
 
-        const question = item.querySelector(".faq-question");
+links.forEach(link => {
 
-        question.addEventListener("click", () => {
+    link.addEventListener("click", function(e){
 
-            faqItems.forEach(faq => {
-                if (faq !== item) {
-                    faq.classList.remove("active");
-                }
+        const destino = document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(destino){
+
+            e.preventDefault();
+
+            destino.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
             });
 
-            item.classList.toggle("active");
-
-        });
+        }
 
     });
 
+});
 
-    /* ===========================================
-       SCROLL SUAVE
-    =========================================== */
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-        anchor.addEventListener("click", function (e) {
+/* =====================================================
+   FAQ ACCORDION PREMIUM
+====================================================== */
 
-            const target = document.querySelector(this.getAttribute("href"));
+const faqButtons = document.querySelectorAll(".faq-question");
 
-            if (target) {
 
-                e.preventDefault();
+faqButtons.forEach(button => {
 
-                target.scrollIntoView({
+    button.addEventListener("click", function(){
 
-                    behavior: "smooth",
+        const item = this.parentElement;
 
-                    block: "start"
+        const answer = item.querySelector(".faq-answer");
 
-                });
+
+        document
+        .querySelectorAll(".faq-item")
+        .forEach(other => {
+
+            if(other !== item){
+
+                other.classList.remove("active");
+
+                const otherAnswer =
+                other.querySelector(".faq-answer");
+
+                if(otherAnswer){
+
+                    otherAnswer.style.maxHeight = null;
+
+                }
 
             }
 
         });
 
-    });
+
+        item.classList.toggle("active");
 
 
-    /* ===========================================
-       HEADER AO ROLAR
-    =========================================== */
+        if(item.classList.contains("active")){
 
-    const header = document.querySelector("header");
+            answer.style.maxHeight =
+            answer.scrollHeight + "px";
 
-    window.addEventListener("scroll", () => {
+        }else{
 
-        if (window.scrollY > 50) {
-
-            header.style.padding = "0px";
-
-            header.style.boxShadow = "0 10px 30px rgba(0,0,0,.12)";
-
-        } else {
-
-            header.style.boxShadow = "0 3px 12px rgba(0,0,0,.08)";
+            answer.style.maxHeight = null;
 
         }
 
-    });
-
-
-    /* ===========================================
-       ANIMAÇÕES AO APARECER
-    =========================================== */
-
-    const animated = document.querySelectorAll(
-
-        ".card,.recipe-card,.bonus-card,.number-card,.learn-card,.offer-box,.guarantee-box"
-
-    );
-
-    const observer = new IntersectionObserver(entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-
-                entry.target.style.transform = "translateY(0)";
-
-            }
-
-        });
-
-    }, {
-
-        threshold: 0.15
 
     });
 
-    animated.forEach(el => {
-
-        el.style.opacity = "0";
-
-        el.style.transform = "translateY(40px)";
-
-        el.style.transition = "all .7s ease";
-
-        observer.observe(el);
-
-    });
+});
 
 
-    /* ===========================================
-       BOTÕES CTA
-    =========================================== */
 
-    const buttons = document.querySelectorAll(".btn-primary");
+/* =====================================================
+   BOTÃO VOLTAR AO TOPO
+====================================================== */
 
-    buttons.forEach(button => {
-
-        button.addEventListener("mouseenter", () => {
-
-            button.style.transform = "translateY(-4px) scale(1.02)";
-
-        });
-
-        button.addEventListener("mouseleave", () => {
-
-            button.style.transform = "translateY(0) scale(1)";
-
-        });
-
-    });
+const backTop =
+document.querySelector(".back-top");
 
 
-    /* ===========================================
-       BOTÃO VOLTAR AO TOPO
-    =========================================== */
-
-    const backTop = document.createElement("button");
-
-    backTop.innerHTML = "⬆";
-
-    backTop.className = "back-top";
-
-    document.body.appendChild(backTop);
-
-    backTop.addEventListener("click", () => {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    });
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 700) {
-
-            backTop.classList.add("show");
-
-        } else {
-
-            backTop.classList.remove("show");
-
-        }
-
-    });
+if(backTop){
 
 
-    /* ===========================================
-       CONTADOR VISUAL DA OFERTA
-    =========================================== */
+window.addEventListener("scroll",()=>{
 
-    const price = document.querySelector(".big-price");
 
-    if (price) {
+    if(window.scrollY > 500){
 
-        price.animate([
+        backTop.classList.add("show");
 
-            { transform: "scale(1)" },
+    }else{
 
-            { transform: "scale(1.05)" },
-
-            { transform: "scale(1)" }
-
-        ], {
-
-            duration: 1500,
-
-            iterations: Infinity
-
-        });
+        backTop.classList.remove("show");
 
     }
 
 
-    /* ===========================================
-       ANIMAÇÃO DO MOCKUP
-    =========================================== */
-
-    const mockup = document.querySelector(".hero-image img");
-
-    if (mockup) {
-
-        window.addEventListener("mousemove", e => {
-
-            const x = (window.innerWidth / 2 - e.clientX) / 80;
-
-            const y = (window.innerHeight / 2 - e.clientY) / 80;
-
-            mockup.style.transform =
-
-                `rotateY(${x}deg) rotateX(${-y}deg)`;
-
-        });
-
-    }
+});
 
 
-    /* ===========================================
-       ANO AUTOMÁTICO NO RODAPÉ
-    =========================================== */
+backTop.addEventListener("click",()=>{
 
-    const footer = document.querySelector("footer p");
 
-    if (footer) {
+window.scrollTo({
 
-        footer.innerHTML =
+    top:0,
 
-            `© ${new Date().getFullYear()} Caderno de Receitas da Vovó. Todos os direitos reservados.`;
+    behavior:"smooth"
 
-    }
+});
+
+
+});
+
+
+}
+
+
+
+/* =====================================================
+   ANIMAÇÃO AO ROLAR
+====================================================== */
+
+
+const elementos =
+document.querySelectorAll(
+".benefit-card, .number-card, .learn-card, .recipe-card, .bonus-card"
+);
+
+
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+observer.unobserve(entry.target);
+
+}
+
+
+});
+
+
+},{
+threshold:0.15
+});
+
+
+
+elementos.forEach(el=>{
+
+observer.observe(el);
+
+});
+
+
+
+/* =====================================================
+   TRACKING BOTÕES DE COMPRA
+   Preparado para Meta Pixel
+====================================================== */
+
+
+const botoesCompra =
+document.querySelectorAll(
+'.btn-primary, .floating-buy, .btn-menu, .offer-content a'
+);
+
+
+
+botoesCompra.forEach(botao=>{
+
+
+botao.addEventListener("click",()=>{
+
+
+console.log(
+"Evento: InitiateCheckout"
+);
+
+
+
+/*
+
+META PIXEL
+
+Quando instalar o Pixel:
+
+fbq('track',
+'InitiateCheckout');
+
+*/
+
+
+});
+
+
+});
+
+
+
+/* =====================================================
+   CONTADOR DE OFERTA
+   24 HORAS RENOVÁVEL
+====================================================== */
+
+
+function iniciarContador(){
+
+
+let fim =
+localStorage.getItem(
+"ofertaReceitas"
+);
+
+
+
+if(!fim){
+
+
+fim =
+Date.now()
++
+(24*60*60*1000);
+
+
+localStorage.setItem(
+"ofertaReceitas",
+fim
+);
+
+
+}
+
+
+
+const atualizar = ()=>{
+
+
+let restante =
+fim - Date.now();
+
+
+
+if(restante <=0){
+
+localStorage.removeItem(
+"ofertaReceitas"
+);
+
+return;
+
+}
+
+
+
+};
+
+
+
+atualizar();
+
+
+
+}
+
+
+
+iniciarContador();
+
+
+
+
+/* =====================================================
+   LAZY LOAD EXTRA
+====================================================== */
+
+
+const imagens =
+document.querySelectorAll("img");
+
+
+imagens.forEach(img=>{
+
+
+if(!img.hasAttribute("loading")){
+
+img.setAttribute(
+"loading",
+"lazy"
+);
+
+}
+
+
+});
+
+
+
+/* =====================================================
+   CONSOLE BRAND
+====================================================== */
+
+
+console.log(
+"%c🍰 Receitas da Vovó carregado com sucesso!",
+"color:#8b4513;font-size:16px;font-weight:bold;"
+);
+
+
 
 });
