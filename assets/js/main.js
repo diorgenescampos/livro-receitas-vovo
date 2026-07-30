@@ -1,104 +1,189 @@
 /* =====================================================
-   SCRIPT.JS V3 PREMIUM
+   SCRIPT.JS V3 PREMIUM FINAL
    Kit Digital Receitas da Vovó
 ====================================================== */
 
+
 document.addEventListener("DOMContentLoaded", function () {
+
+
+
+/* =====================================================
+   META PIXEL - VIEW CONTENT
+====================================================== */
+
+
+if(typeof fbq === "function"){
+
+
+fbq(
+'track',
+'ViewContent',
+{
+
+content_name:
+"Kit Digital Receitas da Vovó",
+
+content_category:
+"Ebook de Receitas",
+
+value:
+11.90,
+
+currency:
+"BRL"
+
+}
+
+);
+
+
+console.log(
+"Meta Pixel: ViewContent enviado"
+);
+
+
+}
+
+
+
 
 
 /* =====================================================
    SCROLL SUAVE
 ====================================================== */
 
-const links = document.querySelectorAll('a[href^="#"]');
 
-links.forEach(link => {
+const links =
+document.querySelectorAll('a[href^="#"]');
 
-    link.addEventListener("click", function(e){
 
-        const destino = document.querySelector(
-            this.getAttribute("href")
-        );
+links.forEach(link=>{
 
-        if(destino){
 
-            e.preventDefault();
+link.addEventListener("click",function(e){
 
-            destino.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
 
-        }
+const destino =
+document.querySelector(
+this.getAttribute("href")
+);
 
-    });
+
+if(destino){
+
+
+e.preventDefault();
+
+
+destino.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
 
 });
+
+
+}
+
+
+});
+
+
+});
+
+
 
 
 
 /* =====================================================
-   FAQ ACCORDION PREMIUM
+   FAQ PREMIUM
 ====================================================== */
 
-const faqButtons = document.querySelectorAll(".faq-question");
+
+const faqButtons =
+document.querySelectorAll(".faq-question");
 
 
-faqButtons.forEach(button => {
-
-    button.addEventListener("click", function(){
-
-        const item = this.parentElement;
-
-        const answer = item.querySelector(".faq-answer");
+faqButtons.forEach(button=>{
 
 
-        document
-        .querySelectorAll(".faq-item")
-        .forEach(other => {
-
-            if(other !== item){
-
-                other.classList.remove("active");
-
-                const otherAnswer =
-                other.querySelector(".faq-answer");
-
-                if(otherAnswer){
-
-                    otherAnswer.style.maxHeight = null;
-
-                }
-
-            }
-
-        });
+button.addEventListener("click",function(){
 
 
-        item.classList.toggle("active");
+const item =
+this.parentElement;
 
 
-        if(item.classList.contains("active")){
-
-            answer.style.maxHeight =
-            answer.scrollHeight + "px";
-
-        }else{
-
-            answer.style.maxHeight = null;
-
-        }
+const answer =
+item.querySelector(".faq-answer");
 
 
-    });
+
+document
+.querySelectorAll(".faq-item")
+.forEach(other=>{
+
+
+if(other !== item){
+
+
+other.classList.remove("active");
+
+
+const otherAnswer =
+other.querySelector(".faq-answer");
+
+
+if(otherAnswer){
+
+otherAnswer.style.maxHeight=null;
+
+}
+
+
+}
+
 
 });
+
+
+
+item.classList.toggle("active");
+
+
+
+if(item.classList.contains("active")){
+
+
+answer.style.maxHeight =
+answer.scrollHeight + "px";
+
+
+}else{
+
+
+answer.style.maxHeight=null;
+
+
+}
+
+
+
+});
+
+
+});
+
+
 
 
 
 /* =====================================================
    BOTÃO VOLTAR AO TOPO
 ====================================================== */
+
 
 const backTop =
 document.querySelector(".back-top");
@@ -110,18 +195,23 @@ if(backTop){
 window.addEventListener("scroll",()=>{
 
 
-    if(window.scrollY > 500){
+if(window.scrollY > 500){
 
-        backTop.classList.add("show");
 
-    }else{
+backTop.classList.add("show");
 
-        backTop.classList.remove("show");
 
-    }
+}else{
+
+
+backTop.classList.remove("show");
+
+
+}
 
 
 });
+
 
 
 backTop.addEventListener("click",()=>{
@@ -129,9 +219,9 @@ backTop.addEventListener("click",()=>{
 
 window.scrollTo({
 
-    top:0,
+top:0,
 
-    behavior:"smooth"
+behavior:"smooth"
 
 });
 
@@ -140,6 +230,8 @@ window.scrollTo({
 
 
 }
+
+
 
 
 
@@ -164,9 +256,12 @@ entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
+
 entry.target.classList.add("visible");
 
+
 observer.unobserve(entry.target);
+
 
 }
 
@@ -176,21 +271,26 @@ observer.unobserve(entry.target);
 
 },{
 threshold:0.15
+
 });
 
 
 
 elementos.forEach(el=>{
 
+
 observer.observe(el);
+
 
 });
 
 
 
+
+
+
 /* =====================================================
-   TRACKING BOTÕES DE COMPRA
-   Preparado para Meta Pixel
+   META PIXEL - INITIATE CHECKOUT
 ====================================================== */
 
 
@@ -207,34 +307,53 @@ botoesCompra.forEach(botao=>{
 botao.addEventListener("click",()=>{
 
 
+if(typeof fbq === "function"){
+
+
+fbq(
+
+'track',
+
+'InitiateCheckout',
+
+{
+
+content_name:
+"Kit Digital Receitas da Vovó",
+
+value:
+11.90,
+
+currency:
+"BRL"
+
+}
+
+);
+
+
+}
+
+
+
 console.log(
-"Evento: InitiateCheckout"
+"Meta Pixel: InitiateCheckout enviado"
 );
 
 
 
-/*
-
-META PIXEL
-
-Quando instalar o Pixel:
-
-fbq('track',
-'InitiateCheckout');
-
-*/
-
-
 });
 
 
 });
+
+
+
 
 
 
 /* =====================================================
    CONTADOR DE OFERTA
-   24 HORAS RENOVÁVEL
 ====================================================== */
 
 
@@ -267,34 +386,6 @@ fim
 
 
 
-const atualizar = ()=>{
-
-
-let restante =
-fim - Date.now();
-
-
-
-if(restante <=0){
-
-localStorage.removeItem(
-"ofertaReceitas"
-);
-
-return;
-
-}
-
-
-
-};
-
-
-
-atualizar();
-
-
-
 }
 
 
@@ -304,8 +395,10 @@ iniciarContador();
 
 
 
+
+
 /* =====================================================
-   LAZY LOAD EXTRA
+   LAZY LOAD IMAGENS
 ====================================================== */
 
 
@@ -318,10 +411,12 @@ imagens.forEach(img=>{
 
 if(!img.hasAttribute("loading")){
 
+
 img.setAttribute(
 "loading",
 "lazy"
 );
+
 
 }
 
@@ -330,13 +425,16 @@ img.setAttribute(
 
 
 
+
+
+
 /* =====================================================
-   CONSOLE BRAND
+   CONSOLE
 ====================================================== */
 
 
 console.log(
-"%c🍰 Receitas da Vovó carregado com sucesso!",
+"%c🍰 Receitas da Vovó V3 Premium carregado!",
 "color:#8b4513;font-size:16px;font-weight:bold;"
 );
 
@@ -345,25 +443,35 @@ console.log(
 });
 
 
+
+
+
 /* =====================================================
    HEADER SCROLL EFFECT
 ====================================================== */
 
-const header = document.querySelector("header");
+
+const header =
+document.querySelector("header");
 
 
 if(header){
+
 
 window.addEventListener("scroll",()=>{
 
 
 if(window.scrollY > 50){
 
+
 header.classList.add("scrolled");
+
 
 }else{
 
+
 header.classList.remove("scrolled");
+
 
 }
 
