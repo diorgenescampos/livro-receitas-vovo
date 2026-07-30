@@ -1319,20 +1319,10 @@ display:block;
 
 }
 /*==================================================
-BARRA DE OFERTA
+BARRA DE OFERTA PREMIUM
 ==================================================*/
 
 .top-offer{
-
-    width:100%;
-
-    background:linear-gradient(90deg,#D2691E,#E67E22);
-
-    color:#fff;
-
-    text-align:center;
-
-    padding:12px 20px;
 
     position:fixed;
 
@@ -1340,9 +1330,17 @@ BARRA DE OFERTA
 
     left:0;
 
-    z-index:10000;
+    width:100%;
 
-    box-shadow:0 3px 12px rgba(0,0,0,.20);
+    background:linear-gradient(90deg,#C85A17,#E67E22);
+
+    color:#fff;
+
+    z-index:99999;
+
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+
+    animation:slideDown .6s ease;
 
 }
 
@@ -1358,19 +1356,39 @@ BARRA DE OFERTA
 
     align-items:center;
 
-    gap:15px;
+    gap:14px;
+
+    padding:12px 20px;
 
     flex-wrap:wrap;
 
-    font-size:17px;
+    font-size:16px;
 
     font-weight:600;
 
 }
 
-.offer-content span{
+.offer-highlight{
 
-    opacity:.6;
+    background:#ffffff25;
+
+    padding:6px 12px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+}
+
+.divider{
+
+    opacity:.4;
+
+}
+
+.offer-content strong{
+
+    color:#FFF8D6;
 
 }
 
@@ -1378,11 +1396,11 @@ BARRA DE OFERTA
 
     background:#fff;
 
-    color:#D2691E;
+    color:#C85A17;
 
-    padding:8px 18px;
+    padding:10px 22px;
 
-    border-radius:30px;
+    border-radius:40px;
 
     font-weight:700;
 
@@ -1392,51 +1410,27 @@ BARRA DE OFERTA
 
 .offer-content a:hover{
 
-    background:#FFF4E5;
-
     transform:translateY(-2px);
 
-}
-
-/* Compensa a barra fixa */
-
-header{
-
-    top:55px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
 
 }
 
-.hero{
+@keyframes slideDown{
 
-    padding-top:210px;
+    from{
 
-}
+        transform:translateY(-100%);
 
-@media(max-width:768px){
+    }
 
-.offer-content{
+    to{
 
-font-size:14px;
+        transform:translateY(0);
 
-gap:8px;
-
-}
-
-.offer-content a{
-
-padding:7px 14px;
-
-font-size:13px;
+    }
 
 }
-
-header{
-
-top:78px;
-
-}
-
-.hero{
 
 padding-top:240px;
 
