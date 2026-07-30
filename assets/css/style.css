@@ -1,8 +1,15 @@
-/* ===================================================
-   RESET
-=================================================== */
+/* =====================================================
+   KIT DIGITAL RECEITAS DA VOVÓ
+   STYLE.CSS V3
+   ===================================================== */
 
-*{
+/* =====================================================
+   RESET
+   ===================================================== */
+
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -18,25 +25,68 @@ body{
 
     background:#FFFDF8;
 
-    color:#333;
+    color:#333333;
 
     line-height:1.6;
 
     overflow-x:hidden;
 
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+
 }
+
+/* =====================================================
+   VARIÁVEIS
+   ===================================================== */
+
+:root{
+
+    --primary:#D2691E;
+    --primary-dark:#B55314;
+
+    --secondary:#FFF4E5;
+
+    --accent:#FFE8C5;
+
+    --text:#333333;
+
+    --text-light:#666666;
+
+    --title:#3D2815;
+
+    --white:#FFFFFF;
+
+    --shadow:0 15px 35px rgba(0,0,0,.08);
+
+    --shadow-hover:0 20px 45px rgba(0,0,0,.15);
+
+    --radius:18px;
+
+    --transition:.35s ease;
+
+}
+
+/* =====================================================
+   ELEMENTOS GERAIS
+   ===================================================== */
 
 img{
 
+    display:block;
+
     max-width:100%;
 
-    display:block;
+    height:auto;
 
 }
 
 a{
 
     text-decoration:none;
+
+    color:inherit;
 
 }
 
@@ -46,24 +96,175 @@ ul{
 
 }
 
-.container{
+button{
 
-    width:90%;
-
-    max-width:1200px;
-
-    margin:auto;
+    font-family:inherit;
 
 }
 
+/* =====================================================
+   CONTAINER
+   ===================================================== */
 
-/* ===================================================
-HEADER
-=================================================== */
+.container{
 
-header{
+    width:min(92%,1200px);
+
+    margin-inline:auto;
+
+}
+
+/* =====================================================
+   SEÇÕES
+   ===================================================== */
+
+section{
+
+    padding:90px 0;
+
+}
+
+section h2{
+
+    font-size:42px;
+
+    color:var(--title);
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+    line-height:1.2;
+
+}
+
+.section-subtitle{
+
+    max-width:760px;
+
+    margin:0 auto 60px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    font-size:19px;
+
+}
+
+/* =====================================================
+   BOTÕES
+   ===================================================== */
+
+.btn-primary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     width:100%;
+
+    min-height:64px;
+
+    background:linear-gradient(180deg,#E67E22,#D2691E);
+
+    color:#FFF;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    border-radius:16px;
+
+    transition:var(--transition);
+
+    box-shadow:0 12px 25px rgba(210,105,30,.30);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 35px rgba(210,105,30,.40);
+
+}
+
+.btn-primary:active{
+
+    transform:scale(.98);
+
+}
+
+/* =====================================================
+   TAGS
+   ===================================================== */
+
+.tag{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    background:var(--accent);
+
+    color:#A85D00;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+/* =====================================================
+   CARDS
+   ===================================================== */
+
+.card{
+
+    background:#FFF;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+/* =====================================================
+   TÍTULOS
+   ===================================================== */
+
+h1,h2,h3,h4{
+
+    font-weight:700;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+}
+
+/* =====================================================
+   BARRA DE OFERTA
+===================================================== */
+
+.top-offer{
 
     position:fixed;
 
@@ -71,17 +272,137 @@ header{
 
     left:0;
 
-    background:#ffffffee;
+    width:100%;
+
+    background:linear-gradient(90deg,#C85A17,#E67E22);
+
+    color:#FFF;
+
+    z-index:99999;
+
+    box-shadow:0 4px 18px rgba(0,0,0,.15);
+
+    animation:slideDown .6s ease;
+
+}
+
+.offer-content{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    min-height:56px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    padding:10px 18px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.offer-highlight{
+
+    background:rgba(255,255,255,.18);
+
+    padding:6px 12px;
+
+    border-radius:50px;
+
+}
+
+.divider{
+
+    opacity:.45;
+
+}
+
+.offer-content strong{
+
+    color:#FFF9D6;
+
+}
+
+.offer-content a{
+
+    background:#FFF;
+
+    color:#C85A17;
+
+    padding:10px 20px;
+
+    border-radius:40px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.offer-content a:hover{
+
+    transform:translateY(-2px);
+
+    background:#FFF5E8;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:fixed;
+
+    top:56px;
+
+    left:0;
+
+    width:100%;
+
+    background:rgba(255,255,255,.95);
 
     backdrop-filter:blur(10px);
 
     box-shadow:0 3px 12px rgba(0,0,0,.08);
 
-    z-index:999;
+    z-index:9999;
+
+    transition:.35s;
 
 }
 
-header .container{
+header.scrolled{
+
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+
+}
+
+
+/* =====================================================
+   CONTAINER HEADER
+===================================================== */
+
+.header-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:16px 20px;
 
     display:flex;
 
@@ -89,15 +410,33 @@ header .container{
 
     align-items:center;
 
-    padding:18px 0;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
 
 }
 
 .logo img{
 
-    height:60px;
+    height:58px;
+
+    width:auto;
 
 }
+
+
+/* =====================================================
+   MENU
+===================================================== */
 
 nav{
 
@@ -105,7 +444,7 @@ nav{
 
     align-items:center;
 
-    gap:28px;
+    gap:30px;
 
 }
 
@@ -117,6 +456,28 @@ nav a{
 
     transition:.3s;
 
+    position:relative;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-5px;
+
+    width:0;
+
+    height:2px;
+
+    background:#D2691E;
+
+    transition:.3s;
+
 }
 
 nav a:hover{
@@ -125,15 +486,28 @@ nav a:hover{
 
 }
 
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+
+/* =====================================================
+   BOTÃO MENU
+===================================================== */
+
 .btn-menu{
 
     background:#D2691E;
 
-    color:white!important;
+    color:#FFF;
 
-    padding:12px 26px;
+    padding:12px 24px;
 
     border-radius:40px;
+
+    font-weight:700;
 
     transition:.3s;
 
@@ -141,20 +515,22 @@ nav a:hover{
 
 .btn-menu:hover{
 
+    background:#B55314;
+
     transform:translateY(-2px);
 
 }
 
 
-/* ===================================================
-HERO
-=================================================== */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
 
-   padding:210px 0 90px;
+    padding:200px 0 90px;
 
-    background:linear-gradient(180deg,#FFF8ED,#ffffff);
+    background:linear-gradient(180deg,#FFF8ED,#FFFFFF);
 
 }
 
@@ -170,35 +546,15 @@ HERO
 
 }
 
-.tag{
-
-    display:inline-block;
-
-    background:#FFE8C5;
-
-    color:#A85D00;
-
-    padding:10px 18px;
-
-    border-radius:50px;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    margin-bottom:25px;
-
-}
-
 .hero h1{
 
     font-size:54px;
 
+    color:#3D2815;
+
     line-height:1.1;
 
-    margin-bottom:25px;
-
-    color:#3D2815;
+    margin:25px 0;
 
 }
 
@@ -214,9 +570,9 @@ HERO
 
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
 
-    gap:15px;
+    gap:16px;
 
     margin-bottom:35px;
 
@@ -224,27 +580,52 @@ HERO
 
 .hero-check div{
 
-    background:white;
+    background:#FFF;
 
-    padding:15px;
+    padding:16px;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    box-shadow:var(--shadow);
 
 }
+
+.hero-image{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.hero-image img{
+
+    max-width:520px;
+
+    width:100%;
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+
+/* =====================================================
+   PREÇO
+===================================================== */
 
 .price-box{
 
     background:#FFF;
 
-    padding:30px;
+    border-radius:22px;
 
-    border-radius:18px;
+    padding:35px;
 
-    margin:35px 0;
+    box-shadow:var(--shadow);
 
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    margin-top:35px;
 
 }
 
@@ -252,59 +633,35 @@ HERO
 
     color:#999;
 
-}
-
-.price-box h2{
-
-    font-size:60px;
-
-    color:#C65A11;
-
-}
-
-.btn-primary{
-
-    display:inline-block;
-
-    width:100%;
-
-    background:#E67E22;
-
-    color:#FFF;
-
-    text-align:center;
+    text-decoration:line-through;
 
     font-size:22px;
 
-    font-weight:700;
-
-    padding:22px;
-
-    border-radius:16px;
-
-    transition:.35s;
-
 }
 
-.btn-primary:hover{
+.big-price{
 
-    background:#D35400;
+    font-size:68px;
 
-    transform:translateY(-4px);
+    color:#D2691E;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    font-weight:800;
+
+    line-height:1;
+
+    margin:15px 0;
 
 }
 
 .security{
 
-    margin-top:25px;
-
     display:flex;
 
-    gap:18px;
-
     flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:25px;
 
     color:#666;
 
@@ -312,1107 +669,63 @@ HERO
 
 }
 
-.hero-image{
 
-    text-align:center;
+/* =====================================================
+   HERO STATS
+===================================================== */
 
-}
-
-.hero-image img{
-
-    width:100%;
-
-    max-width:520px;
-
-    margin:auto;
-
-    animation:flutuar 4s ease-in-out infinite;
-
-}
-
-@keyframes flutuar{
-
-0%{transform:translateY(0);}
-
-50%{transform:translateY(-12px);}
-
-100%{transform:translateY(0);}
-
-}
-
-/*==================================================
-    TITULOS DAS SEÇÕES
-==================================================*/
-
-section{
-
-    padding:90px 0;
-
-}
-
-section h2{
-
-    font-size:42px;
-
-    text-align:center;
-
-    color:#3D2815;
-
-    margin-bottom:15px;
-
-}
-
-.section-subtitle{
-
-    max-width:700px;
-
-    margin:0 auto 60px;
-
-    text-align:center;
-
-    font-size:19px;
-
-    color:#777;
-
-}
-
-/*==================================================
-    BENEFÍCIOS
-==================================================*/
-
-.benefits{
-
-    background:#FFF;
-
-}
-
-.benefits-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:30px;
-
-}
-
-.card{
-
-    background:#fff;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    text-align:center;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.06);
-
-    transition:.35s;
-
-}
-
-.card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.12);
-
-}
-
-.icon{
-
-    width:80px;
-
-    height:80px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#FFF2DF;
+.hero-stats{
 
     display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:38px;
-
-    margin-bottom:25px;
-
-}
-
-.card h3{
-
-    margin-bottom:15px;
-
-    font-size:24px;
-
-    color:#4A2D13;
-
-}
-
-.card p{
-
-    color:#777;
-
-}
-
-/*==================================================
-    NUMBERS
-==================================================*/
-
-.numbers{
-
-    background:#FFF8ED;
-
-}
-
-.numbers-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
-}
-
-.number-card{
-
-    background:#fff;
-
-    padding:35px;
-
-    text-align:center;
-
-    border-radius:18px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
-
-}
-
-.number-card .emoji{
-
-    font-size:42px;
-
-    display:block;
-
-    margin-bottom:15px;
-
-}
-
-.number-card h3{
-
-    font-size:42px;
-
-    color:#D2691E;
-
-}
-
-.number-card p{
-
-    margin-top:10px;
-
-    color:#666;
-
-}
-
-/*==================================================
-    APRENDER
-==================================================*/
-
-.learn{
-
-    background:#ffffff;
-
-}
-
-.learn-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:35px;
-
-}
-
-.learn-card{
-
-    background:#FFFDF8;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
-
-}
-
-.learn-icon{
-
-    width:70px;
-
-    height:70px;
-
-    background:#FFE8C5;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:32px;
-
-    margin-bottom:20px;
-
-}
-
-.learn-card h3{
-
-    margin-bottom:20px;
-
-    color:#4A2D13;
-
-}
-
-.learn-card ul li{
-
-    margin:12px 0;
-
-    color:#555;
-
-}
-
-/*==================================================
-    RECEITAS
-==================================================*/
-
-.content{
-
-    background:#FFF8ED;
-
-}
-
-.recipes-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-}
-
-.recipe-card{
-
-    overflow:hidden;
-
-    border-radius:18px;
-
-    background:#fff;
-
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-}
-
-.recipe-card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.recipe-card img{
-
-    width:100%;
-
-    height:230px;
-
-    object-fit:cover;
-
-}
-
-.recipe-info{
-
-    padding:25px;
-
-}
-
-.recipe-info h3{
-
-    margin-bottom:12px;
-
-    color:#4A2D13;
-
-}
-
-.recipe-info p{
-
-    color:#666;
-
-}
-
-.center{
-
-    text-align:center;
-
-    margin-top:50px;
-
-}
-
-/*==================================================
-    BONUS
-==================================================*/
-
-.bonus{
-
-    background:#ffffff;
-
-}
-
-.bonus-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:30px;
-
-}
-
-.bonus-card{
-
-    background:#FFFDF8;
-
-    border-radius:20px;
-
-    padding:30px;
-
-    text-align:center;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.06);
-
-    transition:.35s;
-
-}
-
-.bonus-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.12);
-
-}
-
-.bonus-card img{
-
-    width:120px;
-
-    margin:0 auto 25px;
-
-}
-
-.bonus-card h3{
-
-    color:#4A2D13;
-
-    margin-bottom:15px;
-
-    font-size:22px;
-
-}
-
-.bonus-card p{
-
-    color:#666;
-
-}
-
-
-/*==================================================
-    COMPARATIVO
-==================================================*/
-
-.comparison{
-
-    background:#FFF8ED;
-
-}
-
-.comparison table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    margin-top:40px;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-}
-
-.comparison th{
-
-    background:#D2691E;
-
-    color:white;
-
-    padding:20px;
-
-    font-size:20px;
-
-}
-
-.comparison td{
-
-    background:white;
-
-    padding:18px;
-
-    border-bottom:1px solid #eee;
-
-    text-align:center;
-
-}
-
-.comparison tr:hover td{
-
-    background:#FFF7EC;
-
-}
-
-
-/*==================================================
-    VALUE BAR
-==================================================*/
-
-.value-bar{
-
-    background:#3D2815;
-
-    padding:35px 0;
-
-}
-
-.value-bar .container{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
 
     flex-wrap:wrap;
 
-}
-
-.value-item{
-
-    color:white;
-
-    font-size:22px;
-
-    font-weight:700;
-
-}
-
-.plus{
-
-    color:#F5C16C;
-
-    font-size:40px;
-
-}
-
-
-/*==================================================
-    OFERTA
-==================================================*/
-
-.offer{
-
-    background:linear-gradient(180deg,#FFFDF8,#FFF4E5);
-
-}
-
-.offer-box{
-
-    max-width:700px;
-
-    margin:auto;
-
-    background:white;
-
-    border-radius:25px;
-
-    padding:45px;
-
-    box-shadow:0 25px 60px rgba(0,0,0,.10);
-
-}
-
-.offer-item{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:15px 0;
-
-    font-size:20px;
-
-}
-
-.offer-item strong{
-
-    color:#D2691E;
-
-}
-
-.offer hr{
-
-    margin:25px 0;
-
-    border:none;
-
-    border-top:2px dashed #DDD;
-
-}
-
-.offer-total{
-
-    text-align:center;
-
-}
-
-.offer-total p{
-
-    color:#888;
-
-    font-size:18px;
-
-}
-
-.offer-total h3{
-
-    color:#999;
-
-    text-decoration:line-through;
-
-    font-size:34px;
-
-    margin:15px 0;
-
-}
-
-.offer-total h2{
-
-    color:#4A2D13;
-
-    margin-bottom:10px;
-
-}
-
-.big-price{
-
-    font-size:72px;
-
-    font-weight:800;
-
-    color:#E67E22;
-
-    margin:20px 0;
-
-    line-height:1;
-
-}
-
-.offer .btn-primary{
+    gap:12px;
 
     margin-top:25px;
 
 }
 
+.hero-stats span{
 
-/*==================================================
-    GARANTIA
-==================================================*/
+    background:#FFF;
 
-.guarantee{
+    padding:10px 16px;
 
-    background:white;
+    border-radius:30px;
 
-}
+    box-shadow:var(--shadow);
 
-.guarantee-box{
-
-    max-width:900px;
-
-    margin:auto;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:35px;
-
-    background:#FFF8ED;
-
-    border-radius:25px;
-
-    padding:45px;
-
-}
-
-.guarantee-icon{
-
-    font-size:80px;
-
-}
-
-.guarantee-text h2{
-
-    text-align:left;
-
-    margin-bottom:15px;
-
-}
-
-.guarantee-text p{
-
-    font-size:18px;
-
-    color:#666;
-
-}
-
-/*==================================================
-FAQ
-==================================================*/
-
-.faq{
-
-    background:#FFF8ED;
-
-}
-
-.faq-item{
-
-    max-width:850px;
-
-    margin:20px auto;
-
-    background:white;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
-
-}
-
-.faq-question{
-
-    width:100%;
-
-    border:none;
-
-    background:white;
-
-    padding:25px;
-
-    font-size:20px;
+    font-size:14px;
 
     font-weight:600;
 
-    text-align:left;
-
-    cursor:pointer;
-
-}
-
-.faq-answer{
-
-    display:none;
-
-    padding:0 25px 25px;
-
-    color:#666;
-
-    font-size:17px;
-
-}
-
-.faq-item.active .faq-answer{
-
-    display:block;
-
 }
 
 
-/*==================================================
-CTA FINAL
-==================================================*/
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
 
-.final-cta{
+@keyframes float{
 
-    background:linear-gradient(180deg,#FFFDF8,#FFF5EA);
+    0%{
 
-    text-align:center;
+        transform:translateY(0);
 
-}
+    }
 
-.mockup-final{
+    50%{
 
-    width:300px;
+        transform:translateY(-12px);
 
-    margin:0 auto 40px;
+    }
 
-}
+    100%{
 
-.final-cta h2{
+        transform:translateY(0);
 
-    font-size:48px;
-
-    color:#4A2D13;
-
-}
-
-.final-cta p{
-
-    max-width:700px;
-
-    margin:25px auto;
-
-    font-size:20px;
-
-}
-
-.price-final{
-
-    margin:35px 0;
-
-}
-
-.price-old{
-
-    display:block;
-
-    color:#999;
-
-    font-size:24px;
-
-}
-
-.price-new{
-
-    display:block;
-
-    color:#E67E22;
-
-    font-size:72px;
-
-    font-weight:800;
-
-}
-
-
-/*==================================================
-FOOTER
-==================================================*/
-
-footer{
-
-    background:#3D2815;
-
-    color:white;
-
-    text-align:center;
-
-    padding:60px 0;
-
-}
-
-.footer-logo{
-
-    width:220px;
-
-    margin:0 auto 25px;
-
-}
-
-.footer-links{
-
-    margin-top:30px;
-
-}
-
-.footer-links a{
-
-    color:#F5D7B5;
-
-    margin:0 15px;
-
-}
-
-
-/*==================================================
-BOTÃO FLUTUANTE
-==================================================*/
-
-.floating-buy{
-
-    position:fixed;
-
-    bottom:20px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    background:#E67E22;
-
-    color:white;
-
-    font-size:20px;
-
-    font-weight:700;
-
-    padding:18px 35px;
-
-    border-radius:50px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-
-    z-index:9999;
-
-    display:none;
-
-}
-
-
-/*==================================================
-RESPONSIVO
-==================================================*/
-
-@media(max-width:991px){
-
-.hero-grid,
-
-.learn-grid,
-
-.benefits-grid,
-
-.numbers-grid,
-
-.recipes-grid,
-
-.bonus-grid{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-nav{
-
-display:none;
-
-}
-
-.hero h1{
-
-font-size:42px;
-
-}
-
-.big-price{
-
-font-size:58px;
-
-}
-
-}
-
-
-@media(max-width:768px){
-
-.hero-grid,
-
-.learn-grid,
-
-.benefits-grid,
-
-.numbers-grid,
-
-.recipes-grid,
-
-.bonus-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.hero{
-
-padding-top:120px;
-
-}
-
-.hero h1{
-
-font-size:34px;
-
-}
-
-section h2{
-
-font-size:32px;
-
-}
-
-.offer-box{
-
-padding:30px;
-
-}
-
-.guarantee-box{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-.guarantee-text h2{
-
-text-align:center;
-
-}
-
-.price-new{
-
-font-size:56px;
-
-}
-
-.floating-buy{
-
-display:block;
-
-}
-
-}
-/*==================================================
-BARRA DE OFERTA PREMIUM
-==================================================*/
-
-.top-offer{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    background:linear-gradient(90deg,#C85A17,#E67E22);
-
-    color:#fff;
-
-    z-index:99999;
-
-    box-shadow:0 4px 20px rgba(0,0,0,.18);
-
-    animation:slideDown .6s ease;
-
-}
-
-.offer-content{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:14px;
-
-    padding:12px 20px;
-
-    flex-wrap:wrap;
-
-    font-size:16px;
-
-    font-weight:600;
-
-}
-
-.offer-highlight{
-
-    background:#ffffff25;
-
-    padding:6px 12px;
-
-    border-radius:50px;
-
-    font-weight:700;
-
-}
-
-.divider{
-
-    opacity:.4;
-
-}
-
-.offer-content strong{
-
-    color:#FFF8D6;
-
-}
-
-.offer-content a{
-
-    background:#fff;
-
-    color:#C85A17;
-
-    padding:10px 22px;
-
-    border-radius:40px;
-
-    font-weight:700;
-
-    transition:.3s;
-
-}
-
-.offer-content a:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    }
 
 }
 
@@ -1432,23 +745,1279 @@ BARRA DE OFERTA PREMIUM
 
 }
 
-padding-top:240px;
+/* =====================================================
+   BENEFÍCIOS
+===================================================== */
+
+.benefits{
+
+    background:#FFFFFF;
 
 }
 
+.benefits-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
 }
-.viewing-now{
 
-    background:#FFF5E8;
+.benefit-card{
 
-    color:#9A5515;
+    background:#FFF;
+
+    padding:35px 25px;
 
     text-align:center;
 
-    padding:8px;
+    border-radius:20px;
 
-    font-weight:600;
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.benefit-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.benefit-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:36px;
+
+}
+
+.benefit-card h3{
+
+    color:var(--title);
+
+    margin-bottom:15px;
+
+    font-size:22px;
+
+}
+
+.benefit-card p{
+
+    font-size:16px;
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   NÚMEROS
+===================================================== */
+
+.numbers{
+
+    background:#FFF8ED;
+
+}
+
+.numbers-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.number-card{
+
+    background:#FFF;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+.number-card span{
+
+    font-size:42px;
+
+    display:block;
+
+    margin-bottom:15px;
+
+}
+
+.number-card h3{
+
+    font-size:42px;
+
+    color:var(--primary);
+
+}
+
+.number-card p{
+
+    margin-top:10px;
+
+}
+
+
+/* =====================================================
+   APRENDER
+===================================================== */
+
+.learn{
+
+    background:#FFF;
+
+}
+
+.learn-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+.learn-card{
+
+    background:#FFFDF8;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.learn-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+.learn-card h3{
+
+    color:var(--title);
+
+    margin-bottom:20px;
+
+}
+
+.learn-card ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.learn-card li{
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   RECEITAS
+===================================================== */
+
+.recipes{
+
+    background:#FFF8ED;
+
+}
+
+.recipes-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.recipe-card{
+
+    background:#FFF;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.recipe-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.recipe-card img{
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    object-fit:cover;
+
+}
+
+.recipe-info{
+
+    padding:25px;
+
+}
+
+.recipe-info h3{
+
+    color:var(--title);
+
+    margin-bottom:10px;
+
+}
+
+.recipe-info p{
 
     font-size:15px;
 
 }
+
+.recipe-stars{
+
+    margin-top:15px;
+
+    color:#F4B400;
+
+    font-size:18px;
+
+}
+
+
+/* =====================================================
+   DESTAQUE
+===================================================== */
+
+.highlight-box{
+
+    margin-top:60px;
+
+    background:linear-gradient(135deg,#FFF3DD,#FFFFFF);
+
+    border-radius:24px;
+
+    padding:40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.highlight-box img{
+
+    max-width:300px;
+
+}
+
+.highlight-content h2{
+
+    text-align:left;
+
+    margin-bottom:20px;
+
+}
+
+.highlight-content ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.highlight-content li{
+
+    font-size:18px;
+
+    color:var(--text);
+
+}
+
+/* =====================================================
+   BÔNUS
+===================================================== */
+
+.bonus{
+
+    background:#FFFFFF;
+
+}
+
+.bonus-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+.bonus-card{
+
+    background:#FFFDF8;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.bonus-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.bonus-card img{
+
+    width:130px;
+
+    margin:0 auto 20px;
+
+}
+
+.bonus-card h3{
+
+    color:var(--title);
+
+    margin-bottom:12px;
+
+    font-size:22px;
+
+}
+
+.bonus-card p{
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   COMPARATIVO
+===================================================== */
+
+.comparison{
+
+    background:#FFF8ED;
+
+}
+
+.comparison-table{
+
+    overflow-x:auto;
+
+}
+
+.comparison table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#FFF;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.comparison th{
+
+    background:var(--primary);
+
+    color:#FFF;
+
+    padding:18px;
+
+    font-size:20px;
+
+}
+
+.comparison td{
+
+    padding:18px;
+
+    text-align:center;
+
+    border-bottom:1px solid #EEE;
+
+}
+
+.comparison tr:hover td{
+
+    background:#FFF8ED;
+
+}
+
+
+/* =====================================================
+   VALUE BAR
+===================================================== */
+
+.value-bar{
+
+    background:linear-gradient(90deg,#3D2815,#5A3B20);
+
+    padding:35px 0;
+
+}
+
+.value-bar .container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+.value-item{
+
+    color:#FFF;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.plus{
+
+    color:#FFD27A;
+
+    font-size:38px;
+
+}
+
+
+/* =====================================================
+   OFERTA
+===================================================== */
+
+.offer{
+
+    background:linear-gradient(180deg,#FFFDF8,#FFF4E5);
+
+}
+
+.offer-box{
+
+    max-width:760px;
+
+    margin:auto;
+
+    background:#FFF;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.10);
+
+}
+
+.offer-title{
+
+    text-align:center;
+
+    color:var(--title);
+
+    margin-bottom:30px;
+
+}
+
+.offer-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 0;
+
+    border-bottom:1px solid #EEE;
+
+    font-size:19px;
+
+}
+
+.offer-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.offer-item strong{
+
+    color:var(--primary);
+
+}
+
+.offer-total{
+
+    text-align:center;
+
+    margin-top:35px;
+
+}
+
+.offer-old{
+
+    font-size:28px;
+
+    color:#999;
+
+    text-decoration:line-through;
+
+}
+
+.offer-price{
+
+    font-size:72px;
+
+    color:var(--primary);
+
+    font-weight:800;
+
+    margin:15px 0;
+
+    line-height:1;
+
+}
+
+.offer-installments{
+
+    font-size:20px;
+
+    color:#666;
+
+    margin-bottom:30px;
+
+}
+
+.offer-security{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:30px;
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   GARANTIA
+===================================================== */
+
+.guarantee{
+
+    background:#FFFFFF;
+
+}
+
+.guarantee-box{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#FFF8ED;
+
+    border-radius:25px;
+
+    padding:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.guarantee-icon{
+
+    font-size:90px;
+
+}
+
+.guarantee-content h2{
+
+    text-align:left;
+
+    margin-bottom:18px;
+
+}
+
+.guarantee-content p{
+
+    font-size:18px;
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   SELO DA OFERTA
+===================================================== */
+
+.offer-badge{
+
+    display:inline-block;
+
+    background:#E53935;
+
+    color:#FFF;
+
+    padding:10px 20px;
+
+    border-radius:50px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+
+    background:#FFF8ED;
+
+}
+
+.faq-list{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.faq-item{
+
+    background:#FFF;
+
+    border-radius:18px;
+
+    margin-bottom:18px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.faq-question{
+
+    width:100%;
+
+    padding:24px;
+
+    background:#FFF;
+
+    border:none;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:var(--title);
+
+}
+
+.faq-question::after{
+
+    content:"+";
+
+    font-size:26px;
+
+    transition:.3s;
+
+}
+
+.faq-item.active .faq-question::after{
+
+    content:"−";
+
+}
+
+.faq-answer{
+
+    display:none;
+
+    padding:0 24px 24px;
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+.faq-item.active .faq-answer{
+
+    display:block;
+
+}
+
+
+/* =====================================================
+   CTA FINAL
+===================================================== */
+
+.final-cta{
+
+    background:linear-gradient(180deg,#FFFDF8,#FFF4E5);
+
+    text-align:center;
+
+}
+
+.final-cta img{
+
+    max-width:320px;
+
+    margin:0 auto 35px;
+
+}
+
+.final-cta h2{
+
+    font-size:48px;
+
+    color:var(--title);
+
+}
+
+.final-cta p{
+
+    max-width:700px;
+
+    margin:25px auto;
+
+    font-size:20px;
+
+}
+
+.final-price{
+
+    margin:30px 0;
+
+}
+
+.final-price .old{
+
+    display:block;
+
+    color:#999;
+
+    text-decoration:line-through;
+
+    font-size:26px;
+
+}
+
+.final-price .new{
+
+    display:block;
+
+    color:var(--primary);
+
+    font-size:72px;
+
+    font-weight:800;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#3D2815;
+
+    color:#FFF;
+
+    padding:60px 20px;
+
+    text-align:center;
+
+}
+
+footer img{
+
+    width:220px;
+
+    margin:0 auto 25px;
+
+}
+
+footer p{
+
+    color:#E8DCCF;
+
+    margin:10px 0;
+
+}
+
+.footer-links{
+
+    margin-top:30px;
+
+}
+
+.footer-links a{
+
+    color:#F5D7B5;
+
+    margin:0 15px;
+
+    transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+    color:#FFF;
+
+}
+
+
+/* =====================================================
+   BOTÃO FLUTUANTE
+===================================================== */
+
+.floating-buy{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:20px;
+
+    transform:translateX(-50%);
+
+    background:linear-gradient(180deg,#E67E22,#D2691E);
+
+    color:#FFF;
+
+    padding:18px 34px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+    z-index:9999;
+
+    display:none;
+
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR AO TOPO
+===================================================== */
+
+.back-top{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:95px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:#FFF;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+
+.back-top.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+.back-top:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width:992px){
+
+.hero-grid,
+.learn-grid,
+.guarantee-box{
+
+grid-template-columns:1fr;
+display:grid;
+
+}
+
+.benefits-grid,
+.numbers-grid,
+.bonus-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.recipes-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.hero{
+
+padding-top:190px;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.offer-price{
+
+font-size:60px;
+
+}
+
+}
+
+
+@media (max-width:768px){
+
+section{
+
+padding:70px 0;
+
+}
+
+.hero{
+
+padding-top:210px;
+
+}
+
+.hero-grid,
+.learn-grid,
+.benefits-grid,
+.numbers-grid,
+.bonus-grid,
+.recipes-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.header-container{
+
+padding:14px 18px;
+
+}
+
+nav{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+section h2{
+
+font-size:30px;
+
+}
+
+.offer-box{
+
+padding:30px;
+
+}
+
+.offer-price{
+
+font-size:54px;
+
+}
+
+.final-price .new{
+
+font-size:54px;
+
+}
+
+.guarantee-box{
+
+display:block;
+
+text-align:center;
+
+}
+
+.guarantee-content h2{
+
+text-align:center;
+
+}
+
+.floating-buy{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.offer-content{
+
+font-size:13px;
+
+gap:8px;
+
+}
+
+.offer-content a{
+
+padding:8px 14px;
+
+font-size:13px;
+
+}
+
+}
+
+
+@media (max-width:480px){
+
+.hero{
+
+padding-top:230px;
+
+}
+
+.big-price{
+
+font-size:48px;
+
+}
+
+.offer-price{
+
+font-size:46px;
+
+}
+
+.btn-primary{
+
+font-size:18px;
+
+min-height:58px;
+
+}
+
+.hero-check{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-stats{
+
+justify-content:center;
+
+}
+
+}
+
+
