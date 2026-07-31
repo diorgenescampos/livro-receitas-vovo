@@ -34,18 +34,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const faqQuestions = document.querySelectorAll(".faq-question");
 
-faqQuestions.forEach((question) => {
+faqQuestions.forEach(question => {
 
-    question.addEventListener("click", () => {
+    question.addEventListener("click", function(){
 
-        const item = question.parentElement;
+        const item = this.parentElement;
 
-        // Fecha os outros
-        document.querySelectorAll(".faq-item").forEach((faq) => {
-            if (faq !== item) {
+        document.querySelectorAll(".faq-item").forEach(faq=>{
+            if(faq!==item){
                 faq.classList.remove("active");
             }
         });
+
+        item.classList.toggle("active");
+
+    });
+
+});
 
         // Abre ou fecha o clicado
         item.classList.toggle("active");
