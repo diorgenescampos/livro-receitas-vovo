@@ -47,22 +47,12 @@ faqQuestions.forEach((question) => {
             }
         });
 
-        // Abre/fecha o clicado
+        // Abre ou fecha o clicado
         item.classList.toggle("active");
 
     });
 
 });
-
-            item.classList.toggle("active");
-
-            if(item.classList.contains("active")){
-                answer.style.maxHeight = answer.scrollHeight + "px";
-            }else{
-                answer.style.maxHeight=null;
-            }
-        });
-    });
 
     /* BOTÃO VOLTAR AO TOPO */
     const backTop = document.querySelector(".back-top");
