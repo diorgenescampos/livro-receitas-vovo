@@ -819,14 +819,18 @@ nav a:hover::after{
     50%{ transform:scale(1.05); }
     100%{ transform:scale(1); }
 }
+/* =====================================================
+   FAQ
+====================================================== */
 
 .faq{
     background:#FFF8ED;
+    padding:80px 0;
 }
 
 .faq-list{
     max-width:900px;
-    margin:auto;
+    margin:40px auto 0;
 }
 
 .faq-item{
@@ -846,6 +850,7 @@ nav a:hover::after{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    text-align:left;
     font-size:20px;
     font-weight:600;
     color:var(--title);
@@ -853,8 +858,9 @@ nav a:hover::after{
 
 .faq-question::after{
     content:"+";
-    font-size:26px;
-    transition:.3s;
+    font-size:28px;
+    font-weight:700;
+    transition:transform .3s ease;
 }
 
 .faq-item.active .faq-question::after{
@@ -867,7 +873,17 @@ nav a:hover::after{
     padding:0 24px;
     color:var(--text-light);
     line-height:1.7;
-    transition:max-height .35s ease,padding .35s ease;
+    transition:max-height .4s ease, padding .4s ease;
+}
+
+.faq-answer p{
+    margin:0;
+}
+
+.faq-item.active .faq-answer{
+    max-height:300px;
+    padding:0 24px 24px;
+}
 }
 
 .faq-item.active .faq-answer{
