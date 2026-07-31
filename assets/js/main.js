@@ -32,28 +32,29 @@ document.addEventListener("DOMContentLoaded", function () {
    FAQ (ACORDEÃO)
 ====================================================== */
 
-const faqQuestions = document.querySelectorAll(".faq-question");
+const faqItems = document.querySelectorAll(".faq-item");
 
-faqQuestions.forEach(question => {
+faqItems.forEach(item => {
 
-    question.addEventListener("click", function(){
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
 
-        const item = this.parentElement;
+    question.addEventListener("click", () => {
 
-        document.querySelectorAll(".faq-item").forEach(faq=>{
-            if(faq!==item){
+        faqItems.forEach(faq => {
+            if(faq !== item){
                 faq.classList.remove("active");
+                faq.querySelector(".faq-answer").style.maxHeight = null;
             }
         });
 
         item.classList.toggle("active");
 
-    });
-
-});
-
-        // Abre ou fecha o clicado
-        item.classList.toggle("active");
+        if(item.classList.contains("active")){
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        }else{
+            answer.style.maxHeight = null;
+        }
 
     });
 
