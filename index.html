@@ -1,1093 +1,393 @@
-/* =====================================================
-   KIT DIGITAL RECEITAS DA VOVÓ
-   STYLE.CSS V3
-   ===================================================== */
-
-*,
-*::before,
-*::after{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#FFFDF8;
-    color:#333333;
-    line-height:1.6;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-}
-
-:root{
-    --primary:#D2691E;
-    --primary-dark:#B55314;
-    --secondary:#FFF4E5;
-    --accent:#FFE8C5;
-    --text:#333333;
-    --text-light:#666666;
-    --title:#3D2815;
-    --white:#FFFFFF;
-    --shadow:0 15px 35px rgba(0,0,0,.08);
-    --shadow-hover:0 20px 45px rgba(0,0,0,.15);
-    --radius:18px;
-    --transition:.35s ease;
-}
-
-img{
-    display:block;
-    max-width:100%;
-    height:auto;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-ul{
-    list-style:none;
-}
-
-button{
-    font-family:inherit;
-}
-
-.container{
-    width:min(92%,1200px);
-    margin-inline:auto;
-}
-
-section{
-    padding:90px 0;
-}
-
-section h2{
-    font-size:42px;
-    color:var(--title);
-    text-align:center;
-    margin-bottom:18px;
-    line-height:1.2;
-}
-
-.section-subtitle{
-    max-width:760px;
-    margin:0 auto 60px;
-    text-align:center;
-    color:var(--text-light);
-    font-size:19px;
-}
-
-.btn-primary{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    min-height:64px;
-    background:linear-gradient(180deg,#E67E22,#D2691E);
-    color:#FFF;
-    font-size:22px;
-    font-weight:700;
-    border-radius:16px;
-    transition:var(--transition);
-    box-shadow:0 12px 25px rgba(210,105,30,.30);
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-    box-shadow:0 18px 35px rgba(210,105,30,.40);
-}
-
-.btn-primary:active{
-    transform:scale(.98);
-}
-
-.tag{
-    display:inline-block;
-    padding:10px 18px;
-    border-radius:50px;
-    background:var(--accent);
-    color:#A85D00;
-    font-size:14px;
-    font-weight:700;
-}
-
-.card{
-    background:#FFF;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    transition:var(--transition);
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:var(--shadow-hover);
-}
-
-h1,h2,h3,h4{
-    font-weight:700;
-}
-
-p{
-    color:var(--text-light);
-}
-
-.top-offer{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    background:linear-gradient(90deg,#C85A17,#E67E22);
-    color:#FFF;
-    z-index:99999;
-    box-shadow:0 4px 18px rgba(0,0,0,.15);
-    animation:slideDown .6s ease;
-}
-
-.offer-content{
-    max-width:1200px;
-    margin:auto;
-    min-height:56px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:14px;
-    flex-wrap:wrap;
-    padding:10px 18px;
-    font-size:15px;
-    font-weight:600;
-}
-
-.offer-highlight{
-    background:rgba(255,255,255,.18);
-    padding:6px 12px;
-    border-radius:50px;
-}
-
-.divider{
-    opacity:.45;
-}
-
-.offer-content strong{
-    color:#FFF9D6;
-}
-
-.offer-content a{
-    background:#FFF;
-    color:#C85A17;
-    padding:10px 20px;
-    border-radius:40px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.offer-content a:hover{
-    transform:translateY(-2px);
-    background:#FFF5E8;
-}
-
-header{
-    position:fixed;
-    top:56px; /* valor padrão; o script.js ajusta dinamicamente
-                 caso a barra de oferta quebre em mais de uma linha
-                 (telas pequenas), evitando o header cobrir a barra */
-    left:0;
-    width:100%;
-    background:rgba(255,255,255,.95);
-    backdrop-filter:blur(10px);
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-    z-index:9999;
-    transition:top .2s ease,box-shadow .35s;
-}
-
-header.scrolled{
-    box-shadow:0 8px 25px rgba(0,0,0,.12);
-}
-
-.header-container{
-    max-width:1200px;
-    margin:auto;
-    padding:16px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-}
-
-.logo img{
-    height:58px;
-    width:auto;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:30px;
-}
-
-nav a{
-    color:#444;
-    font-weight:600;
-    transition:.3s;
-    position:relative;
-}
-
-nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-5px;
-    width:0;
-    height:2px;
-    background:#D2691E;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#D2691E;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
-.btn-menu{
-    background:#D2691E;
-    color:#FFF;
-    padding:12px 24px;
-    border-radius:40px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.btn-menu:hover{
-    background:#B55314;
-    transform:translateY(-2px);
-}
-
-.hero{
-    padding:200px 0 90px;
-    background:linear-gradient(180deg,#FFF8ED,#FFFFFF);
-}
-
-.hero-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.hero h1{
-    font-size:54px;
-    color:#3D2815;
-    line-height:1.1;
-    margin:25px 0;
-}
-
-.hero p{
-    font-size:20px;
-    margin-bottom:30px;
-}
-
-.hero-check{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-    margin-bottom:35px;
-}
-
-.hero-check div{
-    background:#FFF;
-    padding:16px;
-    border-radius:14px;
-    box-shadow:var(--shadow);
-}
-
-.hero-image{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.hero-image img{
-    max-width:520px;
-    width:100%;
-    animation:float 4s ease-in-out infinite;
-}
-
-.price-box{
-    background:#FFF;
-    border-radius:22px;
-    padding:35px;
-    box-shadow:var(--shadow);
-    margin-top:35px;
-}
-
-.old-price{
-    color:#999;
-    text-decoration:line-through;
-    font-size:22px;
-}
-
-.big-price{
-    font-size:68px;
-    color:#D2691E;
-    font-weight:800;
-    line-height:1;
-    margin:15px 0;
-}
-
-.security{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-top:25px;
-    color:#666;
-    font-size:14px;
-}
-
-.hero-stats{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:25px;
-}
-
-.hero-stats span{
-    background:#FFF;
-    padding:10px 16px;
-    border-radius:30px;
-    box-shadow:var(--shadow);
-    font-size:14px;
-    font-weight:600;
-}
-
-@keyframes float{
-    0%{ transform:translateY(0); }
-    50%{ transform:translateY(-12px); }
-    100%{ transform:translateY(0); }
-}
-
-@keyframes slideDown{
-    from{ transform:translateY(-100%); }
-    to{ transform:translateY(0); }
-}
-
-.benefits{
-    background:#FFFFFF;
-}
-
-.benefits-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-}
-
-.benefit-card{
-    background:#FFF;
-    padding:35px 25px;
-    text-align:center;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    transition:var(--transition);
-}
-
-.benefit-card:hover{
-    transform:translateY(-8px);
-    box-shadow:var(--shadow-hover);
-}
-
-.benefit-icon{
-    width:80px;
-    height:80px;
-    margin:0 auto 20px;
-    border-radius:50%;
-    background:var(--accent);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:36px;
-}
-
-.benefit-card h3{
-    color:var(--title);
-    margin-bottom:15px;
-    font-size:22px;
-}
-
-.benefit-card p{
-    font-size:16px;
-    color:var(--text-light);
-}
-
-.numbers{
-    background:#FFF8ED;
-}
-
-.numbers-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-}
-
-.number-card{
-    background:#FFF;
-    border-radius:20px;
-    padding:35px;
-    text-align:center;
-    box-shadow:var(--shadow);
-}
-
-.number-card span{
-    font-size:42px;
-    display:block;
-    margin-bottom:15px;
-}
-
-.number-card h3{
-    font-size:42px;
-    color:var(--primary);
-}
-
-.number-card p{
-    margin-top:10px;
-}
-
-.learn{
-    background:#FFF;
-}
-
-.learn-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:30px;
-}
-
-.learn-card{
-    background:#FFFDF8;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-}
-
-.learn-icon{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    background:var(--accent);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:30px;
-    margin-bottom:20px;
-}
-
-.learn-card h3{
-    color:var(--title);
-    margin-bottom:20px;
-}
-
-.learn-card ul{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-
-.learn-card li{
-    color:var(--text-light);
-}
-
-.recipes{
-    background:#FFF8ED;
-}
-
-.recipes-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-}
-
-.recipe-card{
-    background:#FFF;
-    overflow:hidden;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    transition:var(--transition);
-}
-
-.recipe-card:hover{
-    transform:translateY(-8px);
-    box-shadow:var(--shadow-hover);
-}
-
-.recipe-card img{
-    width:100%;
-    aspect-ratio:4/3;
-    object-fit:cover;
-}
-
-.recipe-info{
-    padding:25px;
-}
-
-.recipe-info h3{
-    color:var(--title);
-    margin-bottom:10px;
-}
-
-.recipe-info p{
-    font-size:15px;
-}
-
-.recipe-stars{
-    margin-top:15px;
-    color:#F4B400;
-    font-size:18px;
-}
-
-.highlight-box{
-    margin-top:60px;
-    background:linear-gradient(135deg,#FFF3DD,#FFFFFF);
-    border-radius:24px;
-    padding:40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
-    box-shadow:var(--shadow);
-}
-
-.highlight-box img{
-    max-width:300px;
-}
-
-.highlight-content h2{
-    text-align:left;
-    margin-bottom:20px;
-}
-
-.highlight-content ul{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.highlight-content li{
-    font-size:18px;
-    color:var(--text);
-}
-
-.bonus{
-    background:#FFFFFF;
-}
-
-.bonus-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-}
-
-.bonus-card{
-    background:#FFFDF8;
-    border-radius:22px;
-    padding:30px;
-    text-align:center;
-    box-shadow:var(--shadow);
-    transition:var(--transition);
-}
-
-.bonus-card:hover{
-    transform:translateY(-8px);
-    box-shadow:var(--shadow-hover);
-}
-
-.bonus-card img{
-    width:130px;
-    margin:0 auto 20px;
-}
-
-/* Ícone circular usado nos cards de bônus enquanto as imagens reais
-   (assets/images/bonus/*.png) não são adicionadas. Usa as mesmas
-   cores da marca (--primary / --accent) que o resto do site. */
-.bonus-icon-circle{
-    width:88px;
-    height:88px;
-    margin:0 auto 20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:38px;
-    line-height:1;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--accent),var(--primary));
-    box-shadow:0 10px 24px rgba(210,105,30,.35);
-}
-
-.bonus-card h3{
-    color:var(--title);
-    margin-bottom:12px;
-    font-size:22px;
-}
-
-.bonus-card p{
-    color:var(--text-light);
-}
-
-.comparison{
-    background:#FFF8ED;
-}
-
-.comparison-table{
-    overflow-x:auto;
-}
-
-.comparison table{
-    width:100%;
-    border-collapse:collapse;
-    background:#FFF;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-}
-
-.comparison th{
-    background:var(--primary);
-    color:#FFF;
-    padding:18px;
-    font-size:20px;
-}
-
-.comparison td{
-    padding:18px;
-    text-align:center;
-    border-bottom:1px solid #EEE;
-}
-
-.comparison tr:hover td{
-    background:#FFF8ED;
-}
-
-.value-bar{
-    background:linear-gradient(90deg,#3D2815,#5A3B20);
-    padding:35px 0;
-}
-
-.value-bar .container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:25px;
-}
-
-.value-item{
-    color:#FFF;
-    font-size:22px;
-    font-weight:700;
-}
-
-.plus{
-    color:#FFD27A;
-    font-size:38px;
-}
-
-.offer{
-    background:linear-gradient(180deg,#FFFDF8,#FFF4E5);
-}
-
-.offer-box{
-    max-width:760px;
-    margin:auto;
-    background:#FFF;
-    padding:45px;
-    border-radius:25px;
-    box-shadow:0 25px 60px rgba(0,0,0,.10);
-}
-
-.offer-title{
-    text-align:center;
-    color:var(--title);
-    margin-bottom:30px;
-}
-
-.offer-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:16px 0;
-    border-bottom:1px solid #EEE;
-    font-size:19px;
-}
-
-.offer-item:last-child{
-    border-bottom:none;
-}
-
-.offer-item strong{
-    color:var(--primary);
-}
-
-.offer-total{
-    text-align:center;
-    margin-top:35px;
-}
-
-.offer-old{
-    font-size:28px;
-    color:#999;
-    text-decoration:line-through;
-}
-
-.offer-price{
-    font-size:72px;
-    color:var(--primary);
-    font-weight:800;
-    margin:15px 0;
-    line-height:1;
-}
-
-.offer-installments{
-    font-size:20px;
-    color:#666;
-    margin-bottom:30px;
-}
-
-.offer-security{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-top:30px;
-    color:#666;
-    font-size:14px;
-}
-
-.guarantee{
-    background:#FFFFFF;
-}
-
-.guarantee-box{
-    max-width:900px;
-    margin:auto;
-    background:#FFF8ED;
-    border-radius:25px;
-    padding:45px;
-    display:flex;
-    align-items:center;
-    gap:40px;
-    box-shadow:var(--shadow);
-}
-
-.guarantee-icon{
-    font-size:90px;
-}
-
-.guarantee-content h2{
-    text-align:left;
-    margin-bottom:18px;
-}
-
-.guarantee-content p{
-    font-size:18px;
-    color:var(--text-light);
-}
-
-.offer-badge{
-    display:inline-block;
-    background:#E53935;
-    color:#FFF;
-    padding:10px 20px;
-    border-radius:50px;
-    font-size:15px;
-    font-weight:700;
-    margin-bottom:20px;
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-    0%{ transform:scale(1); }
-    50%{ transform:scale(1.05); }
-    100%{ transform:scale(1); }
-}
-
-.faq{
-    background:#FFF8ED;
-}
-
-.faq-list{
-    max-width:900px;
-    margin:auto;
-}
-
-.faq-item{
-    background:#FFF;
-    border-radius:18px;
-    margin-bottom:18px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-}
-
-.faq-question{
-    width:100%;
-    padding:24px;
-    background:#FFF;
-    border:none;
-    cursor:pointer;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:20px;
-    font-weight:600;
-    color:var(--title);
-}
-
-.faq-question::after{
-    content:"+";
-    font-size:26px;
-    transition:.3s;
-}
-
-.faq-item.active .faq-question::after{
-    content:"−";
-}
-
-.faq-answer{
-    display:none;
-    padding:0 24px 24px;
-    color:var(--text-light);
-    line-height:1.7;
-}
-
-.faq-item.active .faq-answer{
-    display:block;
-}
-
-.final-cta{
-    background:linear-gradient(180deg,#FFFDF8,#FFF4E5);
-    text-align:center;
-}
-
-.final-cta img{
-    max-width:320px;
-    margin:0 auto 35px;
-}
-
-.final-cta h2{
-    font-size:48px;
-    color:var(--title);
-}
-
-.final-cta p{
-    max-width:700px;
-    margin:25px auto;
-    font-size:20px;
-}
-
-.final-price{
-    margin:30px 0;
-}
-
-.final-price .old{
-    display:block;
-    color:#999;
-    text-decoration:line-through;
-    font-size:26px;
-}
-
-.final-price .new{
-    display:block;
-    color:var(--primary);
-    font-size:72px;
-    font-weight:800;
-}
-
-footer{
-    background:#3D2815;
-    color:#FFF;
-    padding:60px 20px;
-    text-align:center;
-}
-
-footer img{
-    width:220px;
-    margin:0 auto 25px;
-}
-
-footer p{
-    color:#E8DCCF;
-    margin:10px 0;
-}
-
-.footer-links{
-    margin-top:30px;
-}
-
-.footer-links a{
-    color:#F5D7B5;
-    margin:0 15px;
-    transition:.3s;
-}
-
-.footer-links a:hover{
-    color:#FFF;
-}
-
-.floating-buy{
-    position:fixed;
-    left:50%;
-    bottom:20px;
-    transform:translateX(-50%);
-    background:linear-gradient(180deg,#E67E22,#D2691E);
-    color:#FFF;
-    padding:18px 34px;
-    border-radius:50px;
-    font-size:18px;
-    font-weight:700;
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-    z-index:9999;
-    display:none;
-}
-
-.back-top{
-    position:fixed;
-    right:20px;
-    bottom:95px;
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    background:var(--primary);
-    color:#FFF;
-    font-size:22px;
-    cursor:pointer;
-    box-shadow:var(--shadow);
-    opacity:0;
-    pointer-events:none;
-    transition:.3s;
-    z-index:9999;
-}
-
-.back-top.show{
-    opacity:1;
-    pointer-events:auto;
-}
-
-.back-top:hover{
-    transform:translateY(-3px);
-}
-
-@media (max-width:992px){
-    .hero-grid,
-    .learn-grid,
-    .guarantee-box{
-        grid-template-columns:1fr;
-        display:grid;
-    }
-    .benefits-grid,
-    .numbers-grid,
-    .bonus-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-    .recipes-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-    .hero{
-        padding-top:190px;
-    }
-    .hero h1{
-        font-size:42px;
-    }
-    .offer-price{
-        font-size:60px;
-    }
-}
-
-@media (max-width:768px){
-    section{
-        padding:70px 0;
-    }
-    .hero{
-        padding-top:210px;
-    }
-    .hero-grid,
-    .learn-grid,
-    .benefits-grid,
-    .numbers-grid,
-    .bonus-grid,
-    .recipes-grid{
-        grid-template-columns:1fr;
-    }
-    .header-container{
-        padding:14px 18px;
-    }
-    nav{
-        display:none;
-    }
-    .hero h1{
-        font-size:34px;
-    }
-    section h2{
-        font-size:30px;
-    }
-    .offer-box{
-        padding:30px;
-    }
-    .offer-price{
-        font-size:54px;
-    }
-    .final-price .new{
-        font-size:54px;
-    }
-    .guarantee-box{
-        display:block;
-        text-align:center;
-    }
-    .guarantee-content h2{
-        text-align:center;
-    }
-    .floating-buy{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-    .offer-content{
-        font-size:13px;
-        gap:8px;
-    }
-    .offer-content a{
-        padding:8px 14px;
-        font-size:13px;
-    }
-}
-
-@media (max-width:480px){
-    .hero{
-        padding-top:230px;
-    }
-    .big-price{
-        font-size:48px;
-    }
-    .offer-price{
-        font-size:46px;
-    }
-    .btn-primary{
-        font-size:18px;
-        min-height:58px;
-    }
-    .hero-check{
-        grid-template-columns:1fr;
-    }
-    .hero-stats{
-        justify-content:center;
-    }
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caderno de Receitas da Vovó | 25 Receitas + 4 Bônus</title>
+    <meta name="description" content="Aprenda 25 receitas tradicionais da vovó e receba 4 bônus exclusivos. Ebook digital com mais de 80 páginas, acesso imediato e garantia de 7 dias.">
+    <meta name="keywords" content="receitas da vovó, bolo caseiro, pão caseiro, ebook de receitas, receitas tradicionais, culinária brasileira">
+    <meta name="author" content="Receitas da Vovó">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kit Digital Receitas da Vovó">
+    <meta property="og:description" content="25 receitas tradicionais + 4 bônus exclusivos por apenas R$ 11,90.">
+    <meta property="og:image" content="assets/images/mockup/mockup.png">
+    <meta property="og:url" content="https://diorgenescampos.github.io/livro-receitas-vovo/">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kit Digital Receitas da Vovó">
+    <meta name="twitter:description" content="25 receitas tradicionais + 4 bônus exclusivos.">
+    <meta name="twitter:image" content="assets/images/mockup/mockup.png">
+    <!-- <link rel="icon" href="assets/images/favicon/favicon.ico"> -->
+    <!-- <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png"> -->
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){
+    n.callMethod ?
+    n.callMethod.apply(n,arguments) :
+    n.queue.push(arguments)
+    };
+    if(!f._fbq)f._fbq=n;
+    n.push=n;
+    n.loaded=!0;
+    n.version='2.0';
+    n.queue=[];
+    t=b.createElement(e);
+    t.async=!0;
+    t.src=v;
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+    }(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1923160201950301');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1923160201950301&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="top-offer">
+    <div class="offer-content">
+        <span class="offer-highlight">🔥 Oferta de Lançamento</span>
+        <span class="divider">•</span>
+        <span>📘 Kit Digital Completo</span>
+        <span class="divider">•</span>
+        <span>🍰 25 Receitas</span>
+        <span class="divider">•</span>
+        <span>🎁 4 Bônus</span>
+        <span class="divider">•</span>
+        <span><strong>💰 Apenas R$ 11,90</strong></span>
+        <a href="https://pay.kiwify.com.br/fBo9p1v" target="_blank" rel="noopener">
+            QUERO RECEBER AGORA
+        </a>
+    </div>
+</div>
+
+<header>
+    <div class="header-container">
+        <a href="#inicio" class="logo">
+            <img src="assets/images/capa/capa.png" alt="Receitas da Vovó">
+        </a>
+        <nav>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#receitas">Receitas</a>
+            <a href="#bonus">Bônus</a>
+            <a href="#garantia">Garantia</a>
+            <a href="#comprar" class="btn-menu">Comprar</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="inicio">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-content">
+<span class="tag">📘 KIT DIGITAL COMPLETO</span>
+<h1>As receitas tradicionais da vovó reunidas em um único livro digital.</h1>
+<p>
+Descubra receitas simples, deliciosas e cheias de lembranças.
+Receba imediatamente o ebook completo com <strong>25 receitas</strong>,
+mais <strong>4 bônus exclusivos</strong> e comece hoje mesmo.
+</p>
+<div class="hero-check">
+<div>✅ 25 receitas tradicionais</div>
+<div>🎁 4 bônus exclusivos</div>
+<div>📖 Mais de 80 páginas</div>
+<div>⚡ Acesso imediato</div>
+</div>
+<div class="hero-stats">
+<span>⭐ Receita testadas</span>
+<span>📱 Acesso imediato</span>
+<span>🛡️ Garantia de 7 dias</span>
+</div>
+<div class="price-box">
+<div class="old-price">De R$ 99,50</div>
+<div class="big-price">R$ 11,90</div>
+<p>Pagamento único. Acesso liberado logo após a confirmação.</p>
+<div class="security">
+<span>🔒 Compra Segura</span>
+<span>💳 Pix e Cartão</span>
+<span>⚡ Entrega Imediata</span>
+</div>
+<br>
+<a href="https://pay.kiwify.com.br/fBo9p1v" class="btn-primary" target="_blank" rel="noopener">QUERO RECEBER AGORA</a>
+</div>
+</div>
+
+<div class="hero-image">
+<img src="assets/images/mockup/mockup.png" alt="Kit Digital Receitas da Vovó" loading="eager">
+</div>
+</div>
+</div>
+</section>
+
+<section class="benefits" id="beneficios">
+<div class="container">
+<h2>Por que este Kit é diferente?</h2>
+<p class="section-subtitle">Receitas tradicionais, explicadas passo a passo, para você preparar em casa com ingredientes simples.</p>
+<div class="benefits-grid">
+<div class="benefit-card">
+<div class="benefit-icon">📖</div>
+<h3>Passo a passo</h3>
+<p>Receitas explicadas de forma simples, ideal até para iniciantes.</p>
+</div>
+<div class="benefit-card">
+<div class="benefit-icon">🥖</div>
+<h3>Receitas tradicionais</h3>
+<p>Sabores que marcaram gerações e continuam encantando famílias.</p>
+</div>
+<div class="benefit-card">
+<div class="benefit-icon">⏱️</div>
+<h3>Acesso imediato</h3>
+<p>Receba o ebook logo após a confirmação do pagamento.</p>
+</div>
+<div class="benefit-card">
+<div class="benefit-icon">📱</div>
+<h3>Leia onde quiser</h3>
+<p>Acesse no celular, tablet, computador ou imprima quando desejar.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="numbers">
+<div class="container">
+<h2>O que você recebe</h2>
+<p class="section-subtitle">Muito mais do que um simples ebook.</p>
+<div class="numbers-grid">
+<div class="number-card"><span>📘</span><h3>80+</h3><p>Páginas</p></div>
+<div class="number-card"><span>🍰</span><h3>25</h3><p>Receitas</p></div>
+<div class="number-card"><span>🎁</span><h3>4</h3><p>Bônus</p></div>
+<div class="number-card"><span>⭐</span><h3>100%</h3><p>Digital</p></div>
+</div>
+</div>
+</section>
+
+<section class="learn">
+<div class="container">
+<h2>O que você vai aprender</h2>
+<p class="section-subtitle">Receitas clássicas para o café da manhã, da tarde e momentos especiais.</p>
+<div class="learn-grid">
+<div class="learn-card">
+<div class="learn-icon">🍞</div>
+<h3>Pães Caseiros</h3>
+<ul>
+<li>✔️ Pão Caseiro Tradicional</li>
+<li>✔️ Pão de Leite</li>
+<li>✔️ Rosca Caseira</li>
+<li>✔️ Massa macia e fofinha</li>
+</ul>
+</div>
+<div class="learn-card">
+<div class="learn-icon">🎂</div>
+<h3>Bolos e Doces</h3>
+<ul>
+<li>✔️ Bolo de Cenoura</li>
+<li>✔️ Bolo de Milho</li>
+<li>✔️ Pudim Tradicional</li>
+<li>✔️ Broa Caseira</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="recipes" id="receitas">
+<div class="container">
+<h2>Veja algumas receitas do ebook</h2>
+<p class="section-subtitle">Estas são apenas algumas das delícias que você encontrará.</p>
+<div class="recipes-grid">
+<div class="recipe-card">
+<img src="assets/images/receitas/bolo.jpg" alt="Bolo de Milho">
+<div class="recipe-info">
+<h3>Bolo de Milho</h3>
+<p>Macio, fofinho e perfeito para o café da tarde.</p>
+<div class="recipe-stars">★★★★★</div>
+</div>
+</div>
+<div class="recipe-card">
+<img src="assets/images/receitas/pao.jpg" alt="Pão Caseiro">
+<div class="recipe-info">
+<h3>Pão Caseiro</h3>
+<p>Receita tradicional com casca dourada e miolo macio.</p>
+<div class="recipe-stars">★★★★★</div>
+</div>
+</div>
+<div class="recipe-card">
+<img src="assets/images/receitas/doce.jpg" alt="Pudim">
+<div class="recipe-info">
+<h3>Pudim Tradicional</h3>
+<p>Uma sobremesa clássica que nunca sai de moda.</p>
+<div class="recipe-stars">★★★★★</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="bonus" id="bonus">
+<div class="container">
+<h2>🎁 Você também recebe 4 bônus exclusivos</h2>
+<p class="section-subtitle">Além do ebook principal, você recebe materiais extras para facilitar sua rotina na cozinha.</p>
+<div class="bonus-grid">
+<div class="bonus-card">
+<div class="bonus-icon-circle">📏</div>
+<h3>Tabela de Medidas</h3>
+<p>Converta xícaras, colheres e gramas sem erros.</p>
+</div>
+<div class="bonus-card">
+<div class="bonus-icon-circle">🔄</div>
+<h3>Guia de Substituições</h3>
+<p>Troque ingredientes sem perder o sabor das receitas.</p>
+</div>
+<div class="bonus-card">
+<div class="bonus-icon-circle">🛒</div>
+<h3>Lista Inteligente</h3>
+<p>Organize suas compras e evite desperdícios.</p>
+</div>
+<div class="bonus-card">
+<div class="bonus-icon-circle">📅</div>
+<h3>Planejador Semanal</h3>
+<p>Monte seu cardápio semanal de forma simples.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="value-bar">
+<div class="container">
+<div class="value-item">📘 Ebook Premium<br><strong>R$ 49,90</strong></div>
+<div class="plus">+</div>
+<div class="value-item">🎁 4 Bônus<br><strong>R$ 49,60</strong></div>
+<div class="plus">=</div>
+<div class="value-item">Valor Total<br><strong>R$ 99,50</strong></div>
+</div>
+</section>
+
+<section class="comparison">
+<div class="container">
+<h2>Por que escolher este Kit?</h2>
+<div class="comparison-table">
+<table>
+<tr><th>Outros eBooks</th><th>Kit Receitas da Vovó</th></tr>
+<tr><td>Somente receitas</td><td>✅ Receitas + 4 bônus</td></tr>
+<tr><td>Sem organização</td><td>✅ Conteúdo organizado</td></tr>
+<tr><td>Sem suporte visual</td><td>✅ Material fácil de consultar</td></tr>
+<tr><td>Preço elevado</td><td>✅ Apenas R$ 11,90</td></tr>
+</table>
+</div>
+</div>
+</section>
+
+<section class="offer" id="comprar">
+<div class="container">
+<div class="offer-box">
+<div class="offer-title">
+<span class="offer-badge">🔥 OFERTA DE LANÇAMENTO</span>
+<h2>Garanta seu Kit Digital agora</h2>
+</div>
+<div class="offer-item"><span>📘 Ebook Premium</span><strong>R$ 49,90</strong></div>
+<div class="offer-item"><span>🎁 4 Bônus Exclusivos</span><strong>R$ 49,60</strong></div>
+<div class="offer-total">
+<div class="offer-old">De R$ 99,50</div>
+<div class="offer-price">R$ 11,90</div>
+<div class="offer-installments">Pagamento único</div>
+<a href="https://pay.kiwify.com.br/fBo9p1v" class="btn-primary" target="_blank" rel="noopener">QUERO RECEBER AGORA</a>
+<div class="offer-security">
+<span>🔒 Compra Segura</span>
+<span>💳 Pix e Cartão</span>
+<span>⚡ Acesso Imediato</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="guarantee" id="garantia">
+<div class="container">
+<div class="guarantee-box">
+<div class="guarantee-icon">🛡️</div>
+<div class="guarantee-content">
+<h2>Garantia de 7 Dias</h2>
+<p>
+Você pode avaliar o material com tranquilidade.
+Se por qualquer motivo achar que ele não atende às suas expectativas dentro do prazo de garantia oferecido pela plataforma, poderá solicitar o reembolso conforme as condições aplicáveis.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="faq">
+<div class="container">
+<h2>Perguntas Frequentes</h2>
+<p class="section-subtitle">Ainda ficou alguma dúvida? Veja as respostas abaixo.</p>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-question">Como vou receber o ebook?</button>
+<div class="faq-answer"><p>Após a confirmação do pagamento, você receberá acesso imediatamente pela Kiwify no e-mail cadastrado.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Posso acessar pelo celular?</button>
+<div class="faq-answer"><p>Sim. O ebook pode ser lido no celular, tablet, notebook ou computador.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question">O pagamento é seguro?</button>
+<div class="faq-answer"><p>Sim. Todo o pagamento é processado pela Kiwify em ambiente seguro.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question">O acesso é vitalício?</button>
+<div class="faq-answer"><p>Sim. Depois da compra você poderá acessar o material sempre que desejar.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Como funciona a garantia?</button>
+<div class="faq-answer"><p>Você poderá solicitar o reembolso dentro do prazo de garantia informado pela plataforma, conforme as condições aplicáveis.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="final-cta">
+<div class="container">
+<img src="assets/images/mockup/mockup.png" alt="Kit Digital Receitas da Vovó">
+<h2>Leve agora o Kit Digital Receitas da Vovó</h2>
+<p>Mais de 80 páginas com receitas tradicionais, dicas práticas e 4 bônus exclusivos para facilitar sua rotina na cozinha.</p>
+<div class="final-price">
+<span class="old">De R$ 99,50</span>
+<span class="new">R$ 11,90</span>
+</div>
+<a href="https://pay.kiwify.com.br/fBo9p1v" class="btn-primary" target="_blank" rel="noopener">QUERO RECEBER AGORA</a>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<img src="assets/images/capa/capa.png" alt="Receitas da Vovó">
+<p>© 2026 Kit Digital Receitas da Vovó</p>
+<p>Todos os direitos reservados.</p>
+<div class="footer-links">
+<a href="#">Política de Privacidade</a>
+<a href="#">Termos de Uso</a>
+<a href="#">Contato</a>
+</div>
+</div>
+</footer>
+
+<a href="https://pay.kiwify.com.br/fBo9p1v" class="floating-buy" target="_blank" rel="noopener">🛒 Comprar por R$ 11,90</a>
+
+<button class="back-top">↑</button>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
