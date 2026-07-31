@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-   /* =====================================================
+/* =====================================================
    FAQ (ACORDEÃO)
 ====================================================== */
 
@@ -40,14 +40,14 @@ faqQuestions.forEach((question) => {
 
         const item = question.parentElement;
 
-        // Fecha os outros itens
+        // Fecha os outros
         document.querySelectorAll(".faq-item").forEach((faq) => {
             if (faq !== item) {
                 faq.classList.remove("active");
             }
         });
 
-        // Abre ou fecha o item clicado
+        // Abre/fecha o clicado
         item.classList.toggle("active");
 
     });
