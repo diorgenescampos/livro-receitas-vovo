@@ -862,10 +862,17 @@ nav a:hover::after{
 }
 
 .faq-answer{
-    display:none;
-    padding:0 24px 24px;
+    max-height:0;
+    overflow:hidden;
+    padding:0 24px;
     color:var(--text-light);
     line-height:1.7;
+    transition:max-height .35s ease,padding .35s ease;
+}
+
+.faq-item.active .faq-answer{
+    max-height:300px;
+    padding:0 24px 24px;
 }
 
 .faq-item.active .faq-answer{
