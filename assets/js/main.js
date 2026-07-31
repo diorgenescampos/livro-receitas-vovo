@@ -28,20 +28,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* FAQ */
-    const faqButtons = document.querySelectorAll(".faq-question");
-    faqButtons.forEach(button=>{
-        button.addEventListener("click",function(){
-            const item = this.parentElement;
-            const answer = item.querySelector(".faq-answer");
+   /* =====================================================
+   FAQ (ACORDEÃO)
+====================================================== */
 
-            document.querySelectorAll(".faq-item").forEach(other=>{
-                if(other !== item){
-                    other.classList.remove("active");
-                    const otherAnswer = other.querySelector(".faq-answer");
-                    if(otherAnswer){ otherAnswer.style.maxHeight=null; }
-                }
-            });
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach((question) => {
+
+    question.addEventListener("click", () => {
+
+        const item = question.parentElement;
+
+        // Fecha os outros itens
+        document.querySelectorAll(".faq-item").forEach((faq) => {
+            if (faq !== item) {
+                faq.classList.remove("active");
+            }
+        });
+
+        // Abre ou fecha o item clicado
+        item.classList.toggle("active");
+
+    });
+
+});
 
             item.classList.toggle("active");
 
